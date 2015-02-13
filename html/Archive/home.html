@@ -2,6 +2,7 @@
 <html>
 <head>
 	<link rel="stylesheet" type="text/css" href="../css/bootstrap.css">
+	<script type="text/javascript" href="../javascript/app.js"></script>
 	<style type="text/css">
 	.popular-products li {
 		display: inline;
@@ -25,7 +26,7 @@
 
 	.lineitem .btn {
 		margin: 5px;
-		word-spacing: -8px;
+		word-spacing: -8px;	
 	}
 
 	</style>
@@ -42,7 +43,6 @@
       <ul class="nav navbar-nav">
         <li class="active"><a href="#">Home</a></li>
         <li ><a href="orderhistory.html">Order history</a></li>
-        <li ><a href="inventory.html">Inventory</a></li>
 
       </ul>
     </div>
@@ -51,7 +51,6 @@
 </div>
 <div class="container">
 	<div class="row">
-		<!--
 			<form class="navbar-form navbar-left" role="search">
 				<div class="form-group">
 				<label>Enter product</label>
@@ -59,21 +58,11 @@
 				</div>
 				<button type="submit" class="btn btn-default"><span class="glyphicon glyphicon-search"></span> </button>
 		</div>
-	-->
-	<div class="well well-lg">
-		<h2>Inventory</h2>
-		<hr>
-		<div class="input-group input-group-lg">
-			<span class="input-group-addon" id="sizing-addon1"><span class="glyphicon glyphicon-search"></span></span>
-			<input type="text" class="form-control" placeholder="" aria-describedby="sizing-addon1">
-		</div>
-	</div>
-
 
 		<div class="row">
 			<div class="popular-products">
 				<h2>Popular Beers:</h2>
-				<ul id="beerlist">
+				<ul>
 					<li>
 						<div class="container lineitem">
 							<p>Amstel, 33cl	<span class="glyphicon glyphicon-question-sign pull-right"> <button class="btn btn-primary">Add to chart</button></span></p>
@@ -81,29 +70,15 @@
 					</li>
 					<li>
 						<div class="container lineitem">
-							<p>Falcon, 33cl	<span class="glyphicon glyphicon-question-sign pull-right">
-								<button class="btn btn-primary">Add to chart</button></span>
-							</p>
+							<p>Falcon, 33cl	<span class="glyphicon glyphicon-question-sign pull-right"> <button class="btn btn-primary">Add to chart</button></span></p>
 						</div>
 					</li>
 
 				</ul>
 			</div>
 		</div>
-	</form>
+	</form>	
 	</div>
 </div>
-<script charset="utf-8" type="text/template" id="listtmpl">
-		{{#payload}}
-		<li>
-				<div class="container lineitem">
-					<p>Name: {{namn}} Type: {{namn2}} <small>{{price}}</small><span class="glyphicon glyphicon-question-sign pull-right"> <button class="btn btn-primary">Add to chart</button></span></p>
-				</div>
-		</li>
-		{{/payload}}
-</script>
-<script charset="utf-8" type="text/javascript" src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
-<script charset="utf-8" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/0.8.1/mustache.js"></script>
-<script type="text/javascript" src="../javascript/app.js"></script>
 </body>
 </html>

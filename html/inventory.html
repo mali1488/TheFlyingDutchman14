@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" type="text/css" href="../css/bootstrap.css">
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+	<script type="text/javascript" src="../javascript/app.js"></script>
+	<script type="text/javascript" src="../javascript/db.js"></script>
+	<style type="text/css">
+
+	.popular-products li {
+		display: inline;
+		list-style: none;
+	}
+
+
+	.lineitem {
+		background-color: grey;
+		border: 1px solid black;
+		border-radius: 10px;
+		display: block;
+		margin: 10px 10px 10px 20px;
+	}
+
+	.lineitem p {
+		color: white;
+		font-size: 19px;
+		padding: 10px;
+	}
+
+	.lineitem .btn {
+		margin: 5px;
+		word-spacing: -8px;	
+	}
+
+	</style>
+	<title></title>
+</head>
+<body style='text-align: center;'>
+	<script>inventory();</script>
+<div class="header">
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">The Flying Dutchman</a>
+    </div>
+    <div>
+      <ul class="nav navbar-nav">
+        <li><a href="home.html">Home</a></li>
+        <li ><a href="orderhistory.html">Order history</a></li>
+        <li class="active"><a href="inventory.html">Inventory</a></li>
+
+      </ul>
+    </div>
+  </div>
+</nav>
+</div>
+<div class="container" style="width: 900px; margin: 0 auto;"><h1>Full Inventory List</h1><ul style="list-style-type:none; padding: 0;" id="beerList"></ul></div>
+</div>
+</body>
+</html>
