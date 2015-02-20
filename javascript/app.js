@@ -8,13 +8,20 @@ function getAll(callback){
   });
 }
 
+function renderOrder(order){
+  var list = order.orders;
+  var tmpl = $('#ordertmpl').html();
+  var html = Mustache.to_html(tmpl, order);
+  console.log(tmpl);
+  $('#order').html(html);
+}
 
 (function(){
-    var order = [];
+    var order = {"orders" : []};
 
-  function addToOrder(data, amount, price){
-    if(data)
-      order.push({"id" : data, "amount" : amount, "price" : price });
+  function addToOrder(id, amount, price){
+    if(id > 0)
+      order.orders.push({"id" : id, "amount" : amount, "price" : price });
     console.log("Order content: ", order);
   };
 
@@ -25,6 +32,7 @@ function getAll(callback){
       var item_price = parseFloat(itemDiv.find('#price').text());
       addToOrder(item_id, 1, item_price);
       console.log("Order button pressed!", item_id);
+      renderOrder(order);
   });
     $(document).ready(function(){
       getAll(function(data){
