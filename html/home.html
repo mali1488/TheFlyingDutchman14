@@ -3,54 +3,59 @@
 <head>
 	<link rel="stylesheet" type="text/css" href="../css/bootstrap.css">
 	<style type="text/css">
-	.popular-products li {
-		display: inline;
-		list-style: none;
-	}
+		.popular-products li {
+			display: inline;
+			list-style: none;
+		}
 
 
-	.lineitem {
-		background-color: grey;
-		border: 1px solid black;
-		border-radius: 10px;
-		display: block;
-		margin: 10px 10px 10px 20px;
-	}
+		.lineitem {
+			background-color: grey;
+			border: 1px solid black;
+			border-radius: 10px;
+			display: block;
+			margin: 10px 10px 10px 20px;
+		}
 
-	.lineitem p {
-		color: white;
-		font-size: 19px;
-		padding: 10px;
-	}
+		.lineitem p {
+			color: white;
+			font-size: 19px;
+			padding: 10px;
+		}
 
-	.lineitem .btn {
-		margin: 5px;
-		word-spacing: -8px;
-	}
+		.lineitem .btn {
+			margin: 5px;
+			word-spacing: -8px;
+		}
+
+		#inventory {
+			dispay: inline-block;
+			float: left;
+		}
 
 	</style>
-	<title></title>
+	<title>The Flying Dutchman Pub</title>
 </head>
 <body>
-<div class="header">
-<nav class="navbar navbar-inverse">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <a class="navbar-brand" href="#">The Flying Dutchman</a>
-    </div>
-    <div>
-      <ul class="nav navbar-nav">
-        <li class="active"><a href="#">Home</a></li>
-        <li ><a href="orderhistory.html">Order history</a></li>
-        <li ><a href="inventory.html">Inventory</a></li>
+	<div class="header">
+		<nav class="navbar navbar-inverse">
+			<div class="container-fluid">
+				<div class="navbar-header">
+					<a class="navbar-brand" href="#">The Flying Dutchman</a>
+				</div>
+				<div>
+					<ul class="nav navbar-nav">
+						<li class="active"><a href="#">Home</a></li>
+						<li ><a href="orderhistory.html">Order history</a></li>
+						<li ><a href="inventory.html">Inventory</a></li>
 
-      </ul>
-    </div>
-  </div>
-</nav>
-</div>
-<div class="container">
-	<div class="row">
+					</ul>
+				</div>
+			</div>
+		</nav>
+	</div>
+	<div class="container">
+		<div class="row">
 		<!--
 			<form class="navbar-form navbar-left" role="search">
 				<div class="form-group">
@@ -70,41 +75,34 @@
 	</div>
 	<div class="ListOfBeers">
 	  <!-- TODO this is where the result of the search functions copy pasta its result
-	    se line 24-27 in ../javascript/search.js to se how string is composed.-->
-	</div>
-
-
-		<div class="row">
-			<div class="popular-products">
-				<h2>Popular Beers:</h2>
-				<ul id="beerlist">
-					<li>
-						<div class="container lineitem">
-							<p>Amstel, 33cl	<span class="glyphicon glyphicon-question-sign pull-right"> <button class="btn btn-primary">Add to chart</button></span></p>
-						</div>
-					</li>
-					<li>
-						<div class="container lineitem">
-							<p>Falcon, 33cl	<span class="glyphicon glyphicon-question-sign pull-right">
-								<button class="btn btn-primary">Add to chart</button></span>
-							</p>
-						</div>
-					</li>
-
-				</ul>
-			</div>
-		</div>
-	</form>
+	  se line 24-27 in ../javascript/search.js to se how string is composed.-->
 	</div>
 </div>
+</div>
+
+
+
+<div class="row">
+	<div class="col-md-6" id="inventory"><h1>Beers</h1>
+			<div class="list-group" id="beerlist"></div>
+			</div>
+	</div>
+	<div class=" well col-md-6"><h1>Order</h1></div>
+</div>
+	
+
 <script charset="utf-8" type="text/template" id="listtmpl">
-		{{#payload}}
-		<li>
-				<div class="container lineitem">
-					<p>Name: {{namn}} Type: {{namn2}} <small>{{price}}</small><span class="glyphicon glyphicon-question-sign pull-right"> <button class="btn btn-primary">Add to chart</button></span></p>
-				</div>
-		</li>
-		{{/payload}}
+	{{#payload}}
+
+	<div class="list-group-item" id={{beer_id}}>
+		<p>Name: {{namn}} Type: {{namn2}} <small id="price">{{price}}</small><span class="glyphicon glyphicon-question-sign pull-right"> <button class="btn btn-primary addorderbtn" >Add to chart</button></span></p>
+	</div>
+	{{/payload}}
+</script>
+<script type="text/template">
+{{#orders}}
+
+{{/orders}}
 </script>
 <script charset="utf-8" type="text/javascript" src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
 <script charset="utf-8" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/0.8.1/mustache.js"></script>
