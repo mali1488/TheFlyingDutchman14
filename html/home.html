@@ -63,15 +63,20 @@
 	<div class="well well-lg">
 		<h2>hehua</h2>
 		<hr>
-		<div class="input-group input-group-lg">
-			<span class="input-group-addon" id="sizing-addon1"><span class="glyphicon glyphicon-search"></span></span>
-			<input type="text" class="form-control" placeholder="" aria-describedby="sizing-addon1">
-		</div>
-	</div>
-	<div class="ListOfBeers">
+<!--		<div class="input-group input-group-lg">
+		  <span class="input-group-addon" id="search-result"><span class="glyphicon glyphicon-search"></span></span>
+		  <input type="text" class="form-control" placeholder="" aria-describedby="sizing-addon1">
+</div>-->
+<div class="input-group input-group-lg">
+  <span class="input-group-addon" id="sizing-addon1"><span class="glyphicon glyphicon-search"></span></span>
+  <input type="text" class="form-control" placeholder="" aria-describedby="sizing-addon1">
+<ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu" id="testing">
 	  <!-- TODO this is where the result of the search functions copy pasta its result
 	    se line 24-27 in ../javascript/search.js to se how string is composed.-->
-	</div>
+</ul>
+
+</div>
+	
 
 
 		<div class="row">
@@ -101,7 +106,9 @@
 		{{#payload}}
 		<li>
 				<div class="container lineitem">
-					<p>Name: {{namn}} Type: {{namn2}} <small>{{price}}</small><span class="glyphicon glyphicon-question-sign pull-right"> <button class="btn btn-primary">Add to chart</button></span></p>
+				  <p>Name: {{namn}} Type: {{namn2}} <small>{{price}}</small>
+
+				    <span class="glyphicon glyphicon-question-sign pull-right"> <button class="btn btn-primary">Add to chart</button></span></p>
 				</div>
 		</li>
 		{{/payload}}
