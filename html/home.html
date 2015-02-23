@@ -32,12 +32,20 @@
       dispay: inline-block;
       float: left;
       }
+      #beerListOffset {
+      margin-top: 20px;
+      }
+      .Fixed {
+      position: absolute;
+      top: 900px;
+      right: 100px;
+      }
 
     </style>
     <title>The Flying Dutchman Pub</title>
   </head>
   <body>
-    <div class="header">
+    <div class="header" id="parentContainer">
       <nav class="navbar navbar-inverse">
 	<div class="container-fluid">
 	  <div class="navbar-header">
@@ -56,50 +64,50 @@
     </div>
     <div class="container">
       <div class="row">
-	<!--
-	    <form class="navbar-form navbar-left" role="search">
-	      <div class="form-group">
-		<label>Enter product</label>
-		<input type="text" class="form-control" placeholder="Search" style="width: 400px">
-	      </div>
-	      <button type="submit" class="btn btn-default"><span class="glyphicon glyphicon-search"></span> </button>
-      </div>
-      -->
+	
 	<div class="well well-lg text-center">
   	  <h2 style="font-family:Brush Script MT; font-size:80px">The flying dutchman</h2>
   	  <hr>
-	  <!--		<div class="input-group input-group-lg">
-			<span class="input-group-addon" id="search-result"><span class="glyphicon glyphicon-search"></span></span>
-			<input type="text" class="form-control" placeholder="" aria-describedby="sizing-addon1">
-	  </div>-->
-	  <div class="input-group input-group-lg">
-	    <span class="input-group-addon" id="sizing-addon1"><span class="glyphicon glyphicon-search"></span></span>
+	  
+	  <div class="input-group input-group-lg col-md-8">
 	    <input type="text" class="form-control" placeholder="" aria-describedby="sizing-addon1">
-	    <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu" id="testing">
-
+	    <span class="input-group-addon" id="sizing-addon1"><span class="glyphicon glyphicon-search"></span></span>
+	    <ul class="dropdown-menu center" role="menu" aria-labelledby="dropdownMenu" id="testing">
 	    </ul>
 	  </div>
 
-	  <div class="row" style="margin: 30px">
-	    <div class="text-center"><h2 style="font-family:Brush Script MT; font-size:80px">Top drinks</h2></div>
-	    <div class="col-sm-2" style="margin: 10px"><img style="border-radius: 15px;" src="../images/products/135601_thmb.jpg"></div>
-	    <div class="col-sm-2" style="margin: 10px"><img style="border-radius: 15px;" src="../images/products/140003_thmb.jpg"></div>
-	    <div class="col-sm-2" style="margin: 10px"><img style="border-radius: 15px;" src="../images/products/146403_thmb.jpg"></div>
-	    <div class="col-sm-2" style="margin: 10px"><img style="border-radius: 15px;" src="../images/products/148001_thmb.jpg"></div>
-	  </div>
-	  
-	  
-	  <div class="row" style="margin : 15px">
-	    <div class="col-md-8" id="inventory"><h1>Beers</h1>
-	      <div class="list-group" id="beerlist"></div>
-	    </div>
-	    <div class=" well col-md-4" id="orderlist"><h1>Order</h1>
-	      <div class="list-group" id="order">
-	      </div>
-	    </div>
-	  </div>
 
-	  
+	  <!-- top drinks 
+	  <div class="row" style="margin: 30px">
+	    <h4 style="font-size:40px" align="left">Top drinks</h4>
+	    
+	    <div class="col-sm-2 thumbnail" style="margin: 30px"><img style="border-radius: 15px;" src="../images/products/135601_thmb.jpg"></div>
+	    <div class="col-sm-2 thumbnail" style="margin: 30px"><img style="border-radius: 15px;" src="../images/products/140003_thmb.jpg"></div>
+	    <div class="col-sm-2 thumbnail" style="margin: 30px"><img style="border-radius: 15px;" src="../images/products/146403_thmb.jpg"></div>
+
+	  </div>
+	  -->
+	</div>
+	
+
+	<div class="row" style="margin : 10px" id="beerListOffset">
+	  <div class="col-md-6" id="inventory"><h1>Beers</h1>
+	    <div class="list-group" id="beerlist"></div>
+	  </div>
+	  <div class=" well col-md-4 Fixed pull-right" style="margin: 10px" id="orderlist"><h1>Order</h1>
+	    <div class="list-group" id="order">
+	    </div>
+	  </div>
+	</div>
+	<!--
+	    <div style="right:100px" class="Fixed list-group" id="orderlist">
+	      <h1>list</h1>
+	    </div>
+	    -->
+	<bar><br><br>	<br><br><br><br><br><br>asdas	<br><br><br>	<br><br><br>	<br><br><br>	<br><br><br>
+	  <br><br><br>	<br><br><br><br><br><br>asdasd	<br><br><br>	<br><br><br>	<br><br><br>	<br><br><br>
+	  <br><br>	<br><br><br><br><br><br>asdasd	<br><br><br>	<br><br><br>	<br><br><br>	<br><br><br>
+
 	  <script type="text/template" id="listtmpl">
 	    {{#payload}}
 	    <div class="list-group-item" id={{beer_id}}>
@@ -119,5 +127,6 @@
 	  <script charset="utf-8" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/0.8.1/mustache.js"></script>
 	  <script type="text/javascript" src="../javascript/app.js"></script>
 	  <script type="text/javascript" src="../javascript/search.js"></script>
+	  <script type="text/javascript" src="../javascript/orderBox.js"></script>
   </body>
 </html>

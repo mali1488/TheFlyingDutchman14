@@ -64,5 +64,4 @@ $(document).ready(function(){
 	var String = $(this).val();
 	searchBar(String,"ervtod","ervtod");
     });
-    getBeersFromFlicr();
 });
