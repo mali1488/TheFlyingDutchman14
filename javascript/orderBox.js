@@ -5,7 +5,6 @@ $(document).ready(function(){
 
 	if(y < top) {
 	} else {
-	    console.log("do something");
 	    $('#orderlist').css('top', $(this).scrollTop() + 20);
 	}
     });
