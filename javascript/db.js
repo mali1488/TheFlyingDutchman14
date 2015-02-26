@@ -154,12 +154,12 @@ function reverse_user(){//displays users in	reverse order, starting with highest
 
 		var i = num;
 		while (i--){
-			if(data.payload[i].username == null || data.payload[i].username == "") continue;
-			$(".user_list").append("<tr><td><a href=\"user_profile.html\">" + data.payload[i].username + "</a></td><td>" + data.payload[i].first_name + "</td><td>" + data.payload[i].last_name  + "</td><td>" + data.payload[i].assets  + " SEK</td><tr>")
-			
+			if(data.payload[i].username == null || data.payload[i].username == "") continue; //skips users that have no username, can be extended to skip if any of the fields are missing
+			$(".user_list").append("<tr><td><a href=\"user_profile.html\">"
+			 + data.payload[i].username + "</a></td><td>" + data.payload[i].first_name + "</td><td>"
+			  + data.payload[i].last_name  + "</td><td>" + data.payload[i].assets  + " SEK</td><tr>");			
 		}
 		link_row();
-
 	});
 }
 
