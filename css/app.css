@@ -1,0 +1,85 @@
+/* app css stylesheet */
+
+
+body {
+  background-image: url('img/grey_wash_wall_@2X.png');
+}
+
+
+
+
+ul {         
+  padding:0 0 0 0;
+  margin:0 0 0 0;
+}
+ul li {     
+  list-style:none;
+  margin-bottom:0px;  
+  vertical-align: top;         
+}
+
+
+
+.visibleDiv, #topLeft, #topRight, #bottomLeft, #bottomRight
+{
+    position: fixed;
+    width: 400px;
+    border: solid 1px #e1e1e1;
+    vertical-align: middle;
+    background: rgba(245,245,245,0.7);
+    text-align: center;
+}
+
+
+#topLeft
+{
+    top: 10px;
+    left: 10px;
+}
+
+#topRight
+{
+    top: 80px;
+    right: 10px;
+}
+
+#bottomLeft
+{
+    bottom: 10px;
+    left: 10px;
+}
+
+#bottomRight
+{
+    bottom: 10px;
+    right: 10px;
+}
+
+
+.productpanel {
+  width: 270px;
+  height: 300px;
+  vertical-align: top;
+}
+
+.productpanel img {
+  float: left;
+  width: 100px;
+  height: 170px;
+  cursor: pointer;
+}
+
+.productpanel .buybtn {
+  position: absolute;
+    transition: .5 ease;
+  top: 1%;
+  right: 1%;
+}
+
+
+.productpanel .infobtn {
+  position: absolute;
+  transition: .5 ease;
+  top: 1%;
+  right: 20%;
+}

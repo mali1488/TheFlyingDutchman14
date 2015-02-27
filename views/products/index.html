@@ -1,0 +1,33 @@
+
+<div class="col-md-9">
+<ul class="row list-unstyled">
+	<li ng-repeat = "product in products | filter:query |orderBy:namn" ng-if="product.beer_id > 20000&&product.namn !== ''">
+			<div class="col-md-3 well productpanel">
+				<div class="row">
+					<h3>{{product.namn}}</h3>
+					<div class="col-md-5">
+						<img ng-src="img/products/{{product.beer_id}}_thmb.jpg" class="thumbnail img-rounded" ng-click="openInfo(product)">
+					</div>
+					<div class="col-md-7">
+						<dl>
+						<dt>Type</dt>
+						<dd>{{product.namn2}}</dd>
+						<dt>Price:</dt>
+						<dd><em>{{product.price}}</em> kr</dd>
+						<dt>Stock:</dt>
+						<dd>{{product.count}}</dd>
+				</dl>
+					</div>
+				</div>
+
+					<a href="" type="button" class="btn btn-info infobtn" ng-click="openInfo(product)"><span class="glyphicon glyphicon-info-sign"></span></a>
+				<button type="button" class="btn btn-success buybtn" ng-click="buy(product.beer_id)"><span class="glyphicon glyphicon-plus"></span></button>
+
+			</div>
+	</li>
+</ul>
+
+
+
+</div>
+

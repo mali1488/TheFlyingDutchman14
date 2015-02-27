@@ -1,0 +1,67 @@
+<div id="modal">
+	<div class="modal-header">
+		<button type="button" class="close" ng-click="ok()" aria-hidden="true">&times;</button>
+		<div class="page-header">
+			<h1 class="modal-title">{{item.namn}}</h1>
+			<small class="modal-title">{{item.varugrupp}}</small>
+		</div>
+	</div>
+	<div class="modal-body row-fluid">
+		<div class="container-fluid col-md-12">
+			<div class="row-fluid">
+				<div class="col-md-3">
+					<img ng-src="img/products/{{item.nr}}.jpg" class="" width="200px" style="float:left">
+				</div>
+
+				<div class="col-md-8 col-md-offset-1">
+					<dl class="dl-horizontal">
+						<dt>Type</dt>
+						<dd>{{item.namn2}}</dd>
+						<dt>Price</dt>
+						<dd>{{item.prisinklmoms}} kr</dd>
+						<dt>Alcohol Strength</dt>
+						<dd>{{item.alkoholhalt}}</dd>
+					</dl>
+					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magni pariatur minima praesentium quod sapiente officiis, obcaecati corporis cumque nulla. Quos labore possimus, delectus autem odit. Fugit aperiam, veritatis corrupti cum!</p>
+				</div>
+			</div> <!-- row -->
+			<div class="row-fluid">
+				<div class="col-md-12">
+					<accordion>
+						<accordion-group heading="Details">
+						<h4>Product Details</h4>
+						<hr>
+						<div class="row text-center">
+							<div class="col-md-6 pull-left">
+								<dl class="dl-horizontal">
+									<dt>Producent</dt>
+									<dd>{{item.producent}}</dd>
+									<dt>Origin</dt>
+									<dd>{{item.ursprung}}</dd>
+									<dt></dt>
+								</dl>
+							</div>
+							<div class="col-md-6">
+								<dl class="dl-horizontal">
+									<dt>Type</dt>
+									<dd>{{item.namn2}}</dd>
+									<dt>Price</dt>
+									<dd>{{item.prisinklmoms}} kr</dd>
+									<dt></dt>
+								</dl>
+							</div>
+						</div>					
+						<hr>
+					</accordion-group>
+				</accordion>					
+				</div>
+			</div> <!-- row -->
+		</div> <!-- container -->
+	</div> <!-- modal body -->
+			
+<div class="modal-footer">
+	<button class="btn btn-lg btn-primary" ng-click="ok()">Buy</button>
+</div>
+</div>
+
+
