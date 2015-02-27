@@ -6,9 +6,12 @@ $(document).ready(function(){
     jQuery.get(url, function(data){
 	var payload = data.payload;
 	//TODO generate better html code
-	var string = "namn: " + payload[0].namn + ", pris: " + payload[0].prisinklmoms + ", typ: " + payload[0].varugrupp + "\n" +
-	    "land: " + payload[0].ursprungland + ", alkohol: " + payload[0].alkoholhalt;
-	console.log(string);
-	$('#test').html(string);
+	var itemInfo = "<div style=\"position: relative;top:100px;\"><h2>" + payload[0].namn + "</h2><b>pris: </b>" + payload[0].prisinklmoms + "<br><b>typ: </b>" + payload[0].varugrupp +
+	    "<br><b>land: </b>" + payload[0].ursprunglandnamn + "<br><b>alkohol: </b>" + payload[0].alkoholhalt + "<br><br>\
+            <b>Om: </b>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud</div>";
+	
+	var img = "<img src=\"../images/products/" + data.payload[0].nr + ".jpg\">";
+	$('#itemPic').html(img);
+	$('#itemInfo').html(itemInfo);
     });
 });
