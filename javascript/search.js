@@ -10,7 +10,9 @@ function searchBar(String,Username,Password) {
 	    subString = data.payload[i].namn;
 	    if(subString === "" || subString === []){
 	    } else if(subString.toLowerCase().search(String.toLowerCase()) != -1) {
-		HTML = HTML + "<li id=\"" + data.payload[i].beer_id +"\" data-price=\"" + data.payload[i].pub_price + "\"><a data-id=\""+ data.payload[i].beer_id +"\" onclick=\"generateDrinkInfo(this)\" tabindex=\"-1\" href=\"#\"><div class=\"\" id=\"" + data.payload[i].beer_id + "\">" + subString +"</a><small id=\"price\"> : " + data.payload[i].pub_price + " kr</small><button class=\"btn btn-primary addorderbtn btn-sm pull-right\" >Add to chart</button></span></div><li>";
+		HTML = HTML + "<li id=\"" + data.payload[i].beer_id +"\" data-price=\"" + data.payload[i].pub_price + "\"><a data-id=\""+ data.payload[i].beer_id +"\" onclick=\"generateDrinkInfo(this)\" tabindex=\"-1\" href=\"#\">\
+<img style=\"height:60px;width:30px\" src=\"../images/products/" + data.payload[i].beer_id + "_thmb.jpg\"></a>\
+<div class=\"\" id=\"" + data.payload[i].beer_id + "\">" + subString +"<small id=\"price\"> : " + data.payload[i].pub_price + " kr<button class=\"btn  addorderbtn btn-sm pull-right\" >Add to chart</button></small></span></div><li>";
 	    }
 
 	}
@@ -22,14 +24,7 @@ function searchBar(String,Username,Password) {
 	}
     });   
 }
-/*
-function toString(payload){
-    var string = "namn: " + payload[0].namn + ", pris: " + payload[0].prisinkmoms + ", typ: " + payload[0].varugrupp + "\n" +
-	"land: " + payload[0].ursprungland + ", alkohol: " + payload[0].alkoholhalt;
-    console.log("done");
-    return string;
-}
-*/
+
 function generateDrinkInfo(id){
     var idx = $(id);
     var drinkID = idx.attr('data-id');
