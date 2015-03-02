@@ -1,8 +1,9 @@
-
 <div class="col-md-9">
 <ul class="row list-unstyled">
 	<li ng-repeat = "product in products | filter:query |orderBy:namn" ng-if="product.beer_id > 20000&&product.namn !== ''">
 			<div class="col-md-3 well productpanel">
+				
+
 				<div class="row">
 					<h3>{{product.namn}}</h3>
 					<div class="col-md-5">
@@ -15,19 +16,38 @@
 						<dt>Price:</dt>
 						<dd><em>{{product.price}}</em> kr</dd>
 						<dt>Stock:</dt>
-						<dd>{{product.count}}</dd>
-				</dl>
+						<div ng-if="product.count > 0">
+							<dd>{{product.count}}</dd>
+						</div>
+						<div ng-if="product.count <= 0">
+							<dd style="color:red">Out of stock</dd>
+						</div>
+						</dl>
 					</div>
-				</div>
+				</div> <!--row-->
+									
 
-					<a href="" type="button" class="btn btn-info infobtn" ng-click="openInfo(product)"><span class="glyphicon glyphicon-info-sign"></span></a>
-				<button type="button" class="btn btn-success buybtn" ng-click="buy(product.beer_id)"><span class="glyphicon glyphicon-plus"></span></button>
+					<!-- The green buy button -->
+					<button type="button" class="btn btn-success buybtn" ng-show="product.count > 0" ng-click="buy(product.beer_id)"><span class="glyphicon glyphicon-plus"></span></button>
+
+
+					<!-- The red reestock button-->
+					<a href="" type="button" ng-show="user.role === 'admin'" class="btn btn-danger buybtn" ng-click="reeStockInfo(product,product.count)"><span class="glyphicon glyphicon-plus"></span></a>
+
+					<!-- The blue info button -->
+					<a href="" type="button" ng-show="user.role === 'vip'" class="btn btn-info infobtn pull-right" ng-click="openInfo(product)"><span class="glyphicon glyphicon-info-sign"></span></a>
 
 			</div>
 	</li>
 </ul>
-
-
+</div>
+<div id="topRightLi" style="overflow: auto" ng-show="user.role ==='admin'">
+<h3>Need to be reestocked:</h3><br>
+<ul>
+	<li ng-repeat="product in products | orderBy:count" ng-if="product.count <= 10 && product.namn !== ''">
+		<div class="alert alert-danger" role="alert" ng-if="product.count <= 0">{{product.namn}}
+		<a href="" type="button" ng-show="user.role === 'admin'" class="btn btn-danger buybtn pull-right" ng-click="reeStockInfo(product,product.count)"><span class="glyphicon glyphicon-plus"></span></a>
+	</div>	
+	</li>
 
 </div>
-

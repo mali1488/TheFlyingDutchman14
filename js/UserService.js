@@ -4,18 +4,40 @@ angular.module('Dutchman')
 	var dbUrl = "http://pub.jamaica-inn.net/fpdb/api.php?";
 	var UserInfo;
 	var self = this;
+
+	// We need this because there are no role field in the API database...
+	var admins = [
+		'Ervin','Hiram','Jory','Sasa','Sasa'
+	];
+
+	function checkAdmin(name){
+		var length = admins.length;
+		for(var i = 0; i < length; i++){
+			if(admins[i].search(name) === 0) {
+				return true;
+			}
+		}
+		return false;
+	}
+
 	return {
 		authenticate: function(user, callback){
 			$http.get(dbUrl + "username=" + user.name + "&password=" + user.password + "&action=iou_get")
 			.success(function(data){
 				var result = data.payload[0];
-				// Set toorscope so we can access it
-				$rootScope.currentUser = data.payload[0];
-				// Save user as a cookie
-				$cookieStore.put('userInfo',result);
+				var userObj = {first_name  : result.first_name, last_name : result.last_name, user_name: user.name};
 
-				// test cookie
-				console.log("coockie: " + $cookieStore.get('userInfo'));
+				// Check is user is admin or vip
+				if(checkAdmin(result.first_name)) {
+					userObj.role = "admin";
+				} else {
+					userObj.role = "vip";
+				}
+
+				// Save user as a cookie and to rootscope
+				$cookieStore.put('userInfo',userObj);
+
+				// Se if user exists
 				if(data.type.search('error') === 0){
 					if(result.code.search('1') === 0) {
 						callback({authenticated : false, msg: "Wrong username"});

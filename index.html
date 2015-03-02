@@ -21,7 +21,7 @@
           <a class="navbar-brand" href="">The Flying Dutchman</a>
         </div>
         <div>
-          <ul class="nav navbar-nav">
+          <ul class="nav navbar-nav" ng-show="loggedIn">
             <li class="active"><a href="">Home</a></li>
             <li ><a href="">Order history</a></li>
             <li ><a href="">Inventory</a></li>
@@ -29,16 +29,18 @@
 
           <ul class="nav navbar-nav navbar-right">
             <li> <form class="navbar-form" role="search">
-              <div class="input-group">
-                <input type="text" class="form-control" placeholder="Search.." ng-model="query">
-                  <div class="input-group-btn">
+              <div class="input-group" >
+                <div  ng-show="loggedIn">
+                  <input type="text" class="form-control" placeholder="Search.." ng-model="query">
+                </div>
+                  <div class="input-group-btn" ng-show="loggedIn">
                   <button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
                   </div>
               </div>
             </form></li>
             <li>
               <div ng-controller="LoginCtrl">
-                <button ng-click="logOut()" type="button" class="btn btn-default navbar-btn">Log out</button>
+                <button ng-click="logOut()" type="button" class="btn btn-default navbar-btn" ng-show="loggedIn">Log out</button>
               </div>
             </li>
           </ul>
@@ -57,9 +59,9 @@
       <!-- Here the views get rendered -->
       <div ng-view></div>
     </div>
-    <div id="topRight">
+    <!--<div id="topRight">
       <order-pane></order-pane>
-    </div>
+    </div>-->
   </div>
   
   <script src="https://code.jquery.com/jquery-2.1.3.js"></script>
@@ -78,5 +80,7 @@
   <script src="js/LoginController.js"></script>
   <script src="js/MainController.js"></script>
   <script src="js/UserService.js"></script>
+  <script src="js/InventoryService.js"></script>
+  <script src="js/AuthService.js"></script>
 </body>
 </html>

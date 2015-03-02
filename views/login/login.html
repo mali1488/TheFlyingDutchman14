@@ -1,18 +1,26 @@
+<video id="videoScale" src="RobotRock.mp4" autoplay >
+</video>
 
+<!--<div class="container center">-->
 <div class="row">
-	<div class="col-sm-4">
+		<div class="col-md-2 col-md-offset-5 top-buffer">
 		<b>Enter username</b>
-		<input ng-keypress="($event.which === 13)?authenticate(User):0" type="text" ng-model="User.name" class="form-control"  id="usernameInput">
+		<input ng-keypress="($event.which === 13)?authenticate(User):0" type="text" ng-model="User.name" class="form-control"  id="usernameInput" value="Username">
 	</div>
 </div>
 
 <br>
-
 <div class="row">
-	<div class="col-sm-4">
+	<div class="col-md-2 col-md-offset-5" >
 		<b>Enter password</b>
-		<input ng-keypress="($event.which === 13)?authenticate(User):0" type="text" ng-model="User.password" class="form-control" id="passwordInput">
+		<input ng-keypress="($event.which === 13)?authenticate(User):0" type="text" ng-model="User.password" class="form-control" id="passwordInput" value="User.password"><br>
+		
+	</div>
+	<div class="row">
+		<div class="col-md-2 col-md-offset-5">
+		<button ng-click="authenticate(User)" class="btn btn-primary">login</button>
+		</div>
 	</div>
 </div>		
-<br>
-<button ng-click="authenticate(User)" class="btn primary">login</button>
+<!--</div>-->
+
