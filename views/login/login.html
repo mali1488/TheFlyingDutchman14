@@ -1,0 +1,18 @@
+
+<div class="row">
+	<div class="col-sm-4">
+		<b>Enter username</b>
+		<input ng-keypress="($event.which === 13)?authenticate(User):0" type="text" ng-model="User.name" class="form-control"  id="usernameInput">
+	</div>
+</div>
+
+<br>
+
+<div class="row">
+	<div class="col-sm-4">
+		<b>Enter password</b>
+		<input ng-keypress="($event.which === 13)?authenticate(User):0" type="text" ng-model="User.password" class="form-control" id="passwordInput">
+	</div>
+</div>		
+<br>
+<button ng-click="authenticate(User)" class="btn primary">login</button>
