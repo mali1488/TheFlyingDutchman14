@@ -6,9 +6,25 @@ angular.module('Dutchman')
 	
 	$scope.order = Order.all();
 
-	this.addToOrder = function(id){
-		Order.add(id);
+	$scope.addToOrder = function(product){
+		Order.add(product);
 	};
 
+	$scope.removeFromOrder = function(item){
+		Order.delete(item);
+	}
+
+	$scope.dec = function(item){ 
+		item.quantity--;
+		if(item.quantity <= 0)
+			$scope.removeFromOrder(item);
+	}
+	$scope.inc = function(item){
+		item.quantity++;
+	}
+
+	$scope.checkout = function(){
+		console.log("checkout:");
+	}
 
 }]);
