@@ -57,7 +57,8 @@ function($location,$timeout,Inventory,$rootScope,$cookieStore,$scope, Products,O
 		modalInstance = $modal.open({
 			templateUrl: 'views/products/inforeestock.html',
 			controller: function($scope, Products){
-
+					$scope.item = {};
+					
 					$scope.reeStock = function(id,amount, price) {
 					console.log('restocking');
 					console.log(amount);
@@ -68,7 +69,12 @@ function($location,$timeout,Inventory,$rootScope,$cookieStore,$scope, Products,O
 					modalInstance.close();
 					modalInstance = null;
 				}
-						$scope.item = {};
+						
+					$scope.ok = function(){
+						console.log("press x");
+							modalInstance.close();
+							modalInstance = null;
+						}
 				
 					// Get specific product for the modal
 					Products.get(selected.beer_id).success(function(data){

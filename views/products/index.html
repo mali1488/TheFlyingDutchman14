@@ -7,7 +7,8 @@
 				<div class="row">
 					<h3>{{product.namn}}</h3>
 					<div class="col-md-5">
-						<img ng-src="img/products/{{product.beer_id}}_thmb.jpg" class="thumbnail img-rounded" ng-click="openInfo(product)">
+						<img ng-src="img/products/{{product.beer_id}}_thmb.jpg" class="thumbnail img-rounded" ng-click="openInfo(product)" ng-if="user.role === 'vip'">
+						<img ng-src="img/products/{{product.beer_id}}_thmb.jpg" class="thumbnail img-rounded" ng-click="reeStockInfo(product,product.count)" ng-if="user.role === 'admin'">
 					</div>
 					<div class="col-md-7">
 						<dl>
