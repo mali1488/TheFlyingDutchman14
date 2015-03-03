@@ -26,6 +26,10 @@ angular.module('Dutchman', ['ngCookies','ngRoute', 'ngResource', 'ui.bootstrap.m
     templateUrl : 'views/login/loginTest.html',
     controller: 'LoginCtrl' // Add the controller to the view
   }).
+  when('/adduser',{
+    templateUrl : 'views/user/adduser.html',
+    controller: 'UserCtrl' // Add the controller to the view
+  }).
   otherwise({redirectTo: '/products'}); // A default route for anything that does not match a specific route.
 }]);
 
