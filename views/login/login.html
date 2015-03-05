@@ -4,7 +4,7 @@
 <!--<div class="container center">-->
 <div class="row">
 		<div class="col-md-2 col-md-offset-5 top-buffer">
-		<b>Enter username</b>
+		<p style="color:DeepSkyBlue"><b>Enter username</b></p>
 		<input ng-keypress="($event.which === 13)?authenticate(User):0" type="text" ng-model="User.name" class="form-control"  id="usernameInput" value="Username">
 	</div>
 </div>
@@ -12,7 +12,7 @@
 <br>
 <div class="row">
 	<div class="col-md-2 col-md-offset-5" >
-		<b>Enter password</b>
+		<p style="color:DeepSkyBlue"><b>Enter password</b></p>
 		<input ng-keypress="($event.which === 13)?authenticate(User):0" type="text" ng-model="User.password" class="form-control" id="passwordInput" value="User.password"><br>
 		
 	</div>
@@ -21,6 +21,8 @@
 		<button ng-click="authenticate(User)" class="btn btn-primary">login</button>
 		</div>
 	</div>
+
+
 </div>		
 <!--</div>-->
 

@@ -1,23 +1,34 @@
 angular.module('Dutchman')
 
-.controller('LoginCtrl',['$window','Auth','$cookieStore','$scope','User', '$location','$rootScope',
-	function($window,Auth,$cookieStore,$scope, User, $location,$rootScope){
+.controller('LoginCtrl',['$window','Auth','$cookieStore','$scope','User', '$location','$rootScope','$modal',
+	function($window,Auth,$cookieStore,$scope, User, $location,$rootScope,$modal,$dialogs){
 
 
 	$rootScope.loggedIn = $cookieStore.get('loggedin');
+	$scope.modal = {
+  		"title": "Title",
+  		"content": "Hello Modal<br />This is a multiline message!"
+	};
 
 	$scope.authenticate = function(user){
 		this.auth = {};
 		var self = this;
-		$cookieStore.put('loggedin',true);
-		$rootScope.loggedIn = true;
-		//User is the factory UserService
 		User.authenticate(user,function(data){
 			if(data.authenticated){
-				//$window.location.reload();
+
+				//set initial variables
+				if($cookieStore.get('theme') === undefined) {
+					$cookieStore.pus('theme','default');
+					$rootScope.theme = 'default';
+				}
+				$cookieStore.put('loggedin',true);
+				$rootScope.loggedIn = true;
+
+				//change view
 				$location.path('/products');
 			} else {
-				alert(data.msg);
+				// wring username or password
+				$scope.openAlert(data.msg);
 			}
 		});
 		
@@ -29,8 +40,27 @@ angular.module('Dutchman')
 		$rootScope.currentUser = $cookieStore.get('userInfo');
 		$cookieStore.put('loggedin',false);
 		$rootScope.loggedin = false;
-		//$window.location.reload();
+		$cookieStore.remove('userInfo');
+		$cookieStore.remove('loggedin');
+		$rootScope.currentUser = null;
 		$location.path('/logout');
 	}
+
+	$scope.openAlert = function(msg){
+			$scope.message = msg;
+			modalInstance = $modal.open({
+				templateUrl: 'views/login/loginmodal.html',
+				windowClass: 'center-modal',
+				controller: function($scope){
+							$scope.message = msg;
+							// Just closes the modal.
+							$scope.ok = function(){
+								modalInstance.close();
+								modalInstance = null;
+							}
+						
+				}
+			});
+		}
 
 }]);

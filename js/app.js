@@ -22,9 +22,18 @@ angular.module('Dutchman', ['ngCookies','ngRoute', 'ngResource', 'ui.bootstrap.m
     scope: { '=ngModel' : '=ngModel'},
     controller: 'LoginCtrl' // Add the controller to the view
   }).
+  when('/settings',{
+    templateUrl : 'views/settings/settings.html',
+    scope: { '=ngModel' : '=ngModel'},
+    controller: 'SettingsCtrl' // Add the controller to the view
+  }).
   when('/logtest',{
     templateUrl : 'views/login/loginTest.html',
     controller: 'LoginCtrl' // Add the controller to the view
+  }).
+  when('/help',{
+    templateUrl : 'views/help/help.html',
+    controller: 'HelpCtrl' // Add the controller to the view
   }).
   when('/adduser',{
     templateUrl : 'views/user/adduser.html',
