@@ -57,7 +57,7 @@ angular.module('Dutchman')
 		addUserPost: function(formData){
 			var httpPostForm = $http.post(dbUrlwithCreds + "&action=user_edit&user_id=" + formData.userId + "&action=user_edit" + "&new_username=" + formData.username + "&new_password="
 			 + formData.password + "&first_name=" + formData.fname + "&last_name=" + formData.lname + "&email="
-			  + formData.email + "&phone=" + formData.phone + "&amount" + formData.amount + "");
+			  + formData.email + "&phone=" + formData.phone + "&amount=" + formData.amount + "");
 			console.log(httpPostForm);
 			return httpPostForm;
 		}
