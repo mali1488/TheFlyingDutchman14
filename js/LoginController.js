@@ -30,7 +30,7 @@ angular.module('Dutchman')
 
 				//set initial variables
 				if($cookieStore.get('theme') === undefined) {
-					$cookieStore.pus('theme','default');
+					$cookieStore.put('theme','default');
 					$rootScope.theme = 'default';
 				}
 				$cookieStore.put('loggedin',true);
