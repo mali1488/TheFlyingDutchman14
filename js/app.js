@@ -1,10 +1,20 @@
 'use strict';
 
 // Declare app level module which depends on views, and components
-angular.module('Dutchman', ['ngCookies','ngRoute', 'ngResource', 'ui.bootstrap.modal',"template/modal/backdrop.html","template/modal/window.html",
+angular.module('Dutchman', ['pascalprecht.translate','ngCookies','ngRoute', 'ngResource', 'ui.bootstrap.modal',"template/modal/backdrop.html","template/modal/window.html",
 	'ui.bootstrap.accordion','template/accordion/accordion-group.html','template/accordion/accordion.html'])
 
-.config(['$routeProvider', function($routeProvider) { // This tells angular to render a specific view when 
+.config(['$routeProvider','$translateProvider', function($routeProvider,$translateProvider) { // This tells angular to render a specific view when 
+  $translateProvider.translations('en', {
+    USERNAME: 'Enter username',
+    PASSWORD: 'Enter password'
+  }).
+  translations('swe', {
+    // login page
+    USERNAME: 'Ange användarnamn',
+    PASSWORD: 'Ange lösenord'
+  });
+
   $routeProvider.when('/products',					  // you visit the corresponding url
   {
   	templateUrl : 'views/products/index.html',
@@ -40,6 +50,6 @@ angular.module('Dutchman', ['ngCookies','ngRoute', 'ngResource', 'ui.bootstrap.m
     controller: 'UserCtrl' // Add the controller to the view
   }).
   otherwise({redirectTo: '/products'}); // A default route for anything that does not match a specific route.
-}]);
 
+}]);
 

@@ -1,14 +1,15 @@
 angular.module('Dutchman')
 
-.controller('LoginCtrl',['$window','Auth','$cookieStore','$scope','User', '$location','$rootScope','$modal',
-	function($window,Auth,$cookieStore,$scope, User, $location,$rootScope,$modal,$dialogs){
+.controller('LoginCtrl',['$translate','$window','Auth','$cookieStore','$scope','User', '$location','$rootScope','$modal',
+	function($translate,$window,Auth,$cookieStore,$scope, User, $location,$rootScope,$modal,$dialogs){
 
-
+	$translate.use('swe');
 	$rootScope.loggedIn = $cookieStore.get('loggedin');
 	$scope.modal = {
   		"title": "Title",
   		"content": "Hello Modal<br />This is a multiline message!"
 	};
+
 
 	$scope.authenticate = function(user){
 		this.auth = {};
