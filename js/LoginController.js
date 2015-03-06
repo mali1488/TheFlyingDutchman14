@@ -5,11 +5,22 @@ angular.module('Dutchman')
 
 	$translate.use('swe');
 	$rootScope.loggedIn = $cookieStore.get('loggedin');
-	$scope.modal = {
-  		"title": "Title",
-  		"content": "Hello Modal<br />This is a multiline message!"
-	};
+	$scope.drop = false;
+	
+	$scope.lang = function(lang){
+		switch (lang){
+			case 'swe':
+				console.log("swe");
+				$translate.use('swe');
+			break;
+			case 'en':
+				console.log("en");
+				$translate.use('en');
+			break;
+		}
+		
 
+	};
 
 	$scope.authenticate = function(user){
 		this.auth = {};
@@ -34,7 +45,6 @@ angular.module('Dutchman')
 		});
 		
 	}
-
 
 	$scope.logOut = function(){
 		// Fetsch user info. Need to do this when page has been refreshed.

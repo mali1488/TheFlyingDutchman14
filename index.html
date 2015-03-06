@@ -22,12 +22,22 @@
         </div>
         <div>
           <ul class="nav navbar-nav" ng-show="loggedIn">
-            <li class="active"><a href="#products">Home</a></li>
-            <li ><a href="#settings">Setting</a></li>
-            <li ><a href="#help">Help</a></li>
+            <li class="active"><a href="#products">{{ 'HOME' | translate}}</a></li>
+            <li ><a href="#settings">{{'SETTINGS' | translate}}</a></li>
+            <li ><a href="#help">{{'HELP' | translate}}</a></li>
           </ul>
 
           <ul class="nav navbar-nav navbar-right">
+            <li>
+              <div ng-controller="LoginCtrl">
+                <img src ="img/flags/se.svg" style="height:25px;width:25px;margin-top:10px" ng-click="lang('swe')">
+              </div>
+            </li>
+            <li>
+              <div ng-controller="LoginCtrl">
+                  <img src ="img/flags/gb.svg" style="height:25px;width:25px;margin-top:10px" ng-click="lang('en')">
+                </div>
+            </li>
             <li> <form class="navbar-form" role="search">
               <div class="input-group" >
                 <div  ng-show="loggedIn">
@@ -40,7 +50,9 @@
             </form></li>
             <li>
               <div ng-controller="LoginCtrl">
-                <button ng-click="logOut()" type="button" class="btn btn-default navbar-btn" ng-show="loggedIn">Log out</button>
+                <button ng-click="logOut()" type="button" class="btn btn-default navbar-btn" ng-show="loggedIn">
+                {{'LOGOUT' | translate}}
+                </button>
               </div>
             </li>
           </ul>
@@ -65,6 +77,7 @@
   </div>
   
   <script src="https://code.jquery.com/jquery-2.1.3.js"></script>
+  <!--<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>-->
   <script src="js/angular/angular.js"></script>
   <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.19/angular-cookies.js"></script>
   <script src="js/angular-route/angular-route.js"></script>

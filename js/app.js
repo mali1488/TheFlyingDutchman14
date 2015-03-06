@@ -4,16 +4,24 @@
 angular.module('Dutchman', ['pascalprecht.translate','ngCookies','ngRoute', 'ngResource', 'ui.bootstrap.modal',"template/modal/backdrop.html","template/modal/window.html",
 	'ui.bootstrap.accordion','template/accordion/accordion-group.html','template/accordion/accordion.html'])
 
-.config(['$routeProvider','$translateProvider', function($routeProvider,$translateProvider) { // This tells angular to render a specific view when 
+.config(['$routeProvider',  '$translateProvider', function($routeProvider,$translateProvider) { // This tells angular to render a specific view when 
   $translateProvider.translations('en', {
     USERNAME: 'Enter username',
-    PASSWORD: 'Enter password'
+    PASSWORD: 'Enter password',
+    HOME: 'Home',
+    SETTINGS: 'Settings',
+    HELP: 'Help',
+    LOGOUT: 'Logout'
   }).
   translations('swe', {
     // login page
     USERNAME: 'Ange användarnamn',
-    PASSWORD: 'Ange lösenord'
-  });
+    PASSWORD: 'Ange lösenord',
+    HOME: 'Start',
+    SETTINGS: 'Verktyg',
+    HELP: 'Hjälp',
+    LOGOUT: 'Logga ut'
+  }),
 
   $routeProvider.when('/products',					  // you visit the corresponding url
   {
