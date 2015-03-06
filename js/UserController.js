@@ -1,11 +1,12 @@
 angular.module('Dutchman')
 
-.controller('UserCtrl',['$scope',function($scope){
+.controller("UserCtrl", ["User" function(User, $scope, $http) {
 
-	function addUser(fname, lname, username, password, email, phone){
-		return $http.get(dbUrl + "&action=user_edit" + "&new_username=" + username + "&new_password="
-			 + password + "&first_name=" + fname + "&last_name=" + lname + "&email=" + email + "&phone=" + phone);
-		
-	}
-	
-}]);
+
+       $scope.addUser = function(addUser){
+       	console.log("Adding user");
+       	console.log(addUser);
+       	User.addUser(addUser);
+       }
+
+  }]);

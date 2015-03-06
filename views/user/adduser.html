@@ -3,28 +3,32 @@
 	<legend>Edit user info:</legend>
 		<div class="form-group">
 			<label for="fname">First name:</label>
-			<input type="text" id="fname" class="form-control" ng-model="fname">
+			<input type="text" id="fname" class="form-control" ng-model="addUser.fname">
 		</div>
 		<div class="form-group">
 			<label for="lname">Last name:</label>
-			<input type="text" id="lname" class="form-control" ng-model="lname">
+			<input type="text" id="lname" class="form-control" ng-model="addUser.lname">
 		</div>
 		<div class="form-group">
 			<label for="username">New username:</label>
-			<input type="text" id="username" class="form-control" ng-model="username">
+			<input type="text" id="username" class="form-control" ng-model="addUser.username">
 		</div>
 		<div class="form-group">
 			<label for="password">Password:</label>
-			<input type="password" id="password" class="form-control" ng-model="password">
+			<input type="password" id="password" class="form-control" ng-model="addUser.password">
 		</div>
 		<div class="form-group">
 			<label for="email">Email:</label>
-			<input type="email" id="email" class="form-control" ng-model="email">
+			<input type="email" id="email" class="form-control" ng-model="addUser.email">
 		</div>
 		<div class="form-group">
 			<label for="phone">Phone:</label>
-			<input type="number" id="phone" class="form-control" ng-model="phone">
+			<input type="number" id="phone" class="form-control" ng-model="addUser.phone">
 		</div>
-		<button type="submit" class="btn btn-primary" style="float: right;" ng-click="addUser(fname, lname, username, password, email, phone)">Submit</button>
+		<button type="submit" class="btn btn-primary" style="float: right;" ng-click="addUser(addUser)">Submit</button>
 	</fieldset>
 </form>
+
+<pre>
+	{{addUser}}
+</pre>
