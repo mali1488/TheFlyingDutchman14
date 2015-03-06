@@ -53,10 +53,11 @@ angular.module('Dutchman')
 			});
 
 		}, 
-		addUser: function(user){
-			return $http.post(dbUrl + "&action=user_edit" + "&new_username=" + addUser.username + "&new_password="
-			 + addUser.password + "&first_name=" + addUser.fname + "&last_name=" + addUser.lname + "&email="
-			  + addUser.email + "&phone=" + addUser.phone + "");
+		addUserPost: function(formData){
+			var httpPostForm = $http.post(dbUrl + "&action=user_edit" + "&new_username=" + username + "&new_password="
+			 + password + "&first_name=" + fname + "&last_name=" + lname + "&email="
+			  + email + "&phone=" + phone + "");
+			return httpPostForm;
 		}
 	};
 

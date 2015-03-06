@@ -1,12 +1,13 @@
 angular.module('Dutchman')
 
-.controller("UserCtrl", ["User" function(User, $scope, $http) {
+.controller("UserCtrl", ['User', '$scope', function(User, $scope, $http) {
 
 
-       $scope.addUser = function(addUser){
-       	console.log("Adding user");
-       	console.log(addUser);
-       	User.addUser(addUser);
+       $scope.addUser = function(formData){
+       		console.log("Adding user");
+       		console.log(formData);
+       		User.addUserPost(formData);
        }
 
   }]);
+
