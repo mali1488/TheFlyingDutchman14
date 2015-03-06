@@ -37,7 +37,7 @@ angular.module('Dutchman')
 
 
 	$scope.logOut = function(){
-		// Fetsch user info. Need to do this when page has been refreshed.
+		// Fetch user info. Need to do this when page has been refreshed.
 		$rootScope.currentUser = $cookieStore.get('userInfo');
 		$cookieStore.put('loggedin',false);
 		$rootScope.loggedin = false;
