@@ -37,7 +37,7 @@ angular.module('Dutchman')
 				// Save user as a cookie and to rootscope
 				$cookieStore.put('userInfo',userObj);
 
-				// Se if user exists
+				// See if user exists
 				if(data.type.search('error') === 0){
 					if(result.code.search('1') === 0) {
 						callback({authenticated : false, msg: "Wrong username"});
@@ -52,6 +52,11 @@ angular.module('Dutchman')
 				}
 			});
 
+		}, 
+		addUser: function(user){
+			return $http.post(dbUrl + "&action=user_edit" + "&new_username=" + addUser.username + "&new_password="
+			 + addUser.password + "&first_name=" + addUser.fname + "&last_name=" + addUser.lname + "&email="
+			  + addUser.email + "&phone=" + addUser.phone + "");
 		}
 	};
 
