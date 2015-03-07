@@ -13,7 +13,8 @@
   <link rel="stylesheet" href="css/bootstrap/dist/css/bootstrap.css">
   <link rel="stylesheet" href="css/app.css">
 </head>
-<body ng-app="Dutchman">
+<!--<body ng-app="Dutchman" ng-style="{'background-color':theme }">-->
+<body ng-app="Dutchman" ng-style="theme === 'red' && {'background-image':'url(img/themes/sc.jpg)', 'background-size': '100%', 'background-attachment': 'fixed', 'background-repeat': 'no-repeat' }"> 
   <div class="header">
   <nav class="navbar navbar-inverse navbar-fixed-top">
       <div class="container-fluid">
@@ -41,7 +42,7 @@
             <li> <form class="navbar-form" role="search">
               <div class="input-group" >
                 <div  ng-show="loggedIn">
-                  <input type="text" class="form-control" placeholder="Search..." ng-model="query">
+                  <input type="text" class="form-control" placeholder="{{'SEARCH' | translate}}" ng-model="query">
                 </div>
                   <div class="input-group-btn" ng-show="loggedIn">
                   <button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
@@ -66,7 +67,7 @@
   <div class="container" ng-contoller="MainCtrl">
     <div class="row">
       
-      <br><br><h1></h1>
+      <br><br><!--<h1></h1>-->
       <hr>
       <!-- Here the views get rendered -->
       <div ng-view></div>
@@ -100,5 +101,6 @@
   <script src="js/UsersFactory.js"></script>
   <script src="js/UserController.js"></script>
   <script src="js/angular-translate/angular-translate.js"></script>
+
 </body>
 </html>
