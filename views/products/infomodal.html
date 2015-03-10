@@ -15,37 +15,37 @@
 
 				<div class="col-md-8 col-md-offset-1">
 					<dl class="dl-horizontal">
-						<dt>Type</dt>
+						<dt>{{ 'TYPE' | translate}}</dt>
 						<dd>{{item.namn2}}</dd>
-						<dt>Price</dt>
+						<dt>{{ 'PRICE' | translate}}</dt>
 						<dd>{{item.prisinklmoms}} kr</dd>
-						<dt>Alcohol Strength</dt>
+						<dt>{{ 'ALKSTR' | translate}}</dt>
 						<dd>{{item.alkoholhalt}}</dd>
 					</dl>
-					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magni pariatur minima praesentium quod sapiente officiis, obcaecati corporis cumque nulla. Quos labore possimus, delectus autem odit. Fugit aperiam, veritatis corrupti cum!</p>
+					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magni pariatur minima praesentium quod sapiente officiis, obcaecati corporis cumque nulla. Quos labore possimus, delectus autem odit. Fugit aperiam, veritatis corrupti!</p>
 				</div>
 			</div> <!-- row -->
 			<div class="row-fluid">
 				<div class="col-md-12">
 					<accordion>
-						<accordion-group heading="Details">
-						<h4>Product Details</h4>
+						<accordion-group heading="{{ 'DETAILS' | translate}}">
+						<h4>{{ 'PROPDET' | translate}}</h4>
 						<hr>
 						<div class="row text-center">
 							<div class="col-md-6 pull-left">
 								<dl class="dl-horizontal">
-									<dt>Producent</dt>
+									<dt>{{'PRODUCER' | translate}}</dt>
 									<dd>{{item.producent}}</dd>
-									<dt>Origin</dt>
+									<dt>{{'ORIGIN' | translate}}</dt>
 									<dd>{{item.ursprung}}</dd>
 									<dt></dt>
 								</dl>
 							</div>
 							<div class="col-md-6">
 								<dl class="dl-horizontal">
-									<dt>Type</dt>
+									<dt>{{ 'TYPE' | translate}}</dt>
 									<dd>{{item.namn2}}</dd>
-									<dt>Price</dt>
+									<dt>{{ 'PRICE' | translate}}</dt>
 									<dd>{{item.prisinklmoms}} kr</dd>
 									<dt></dt>
 								</dl>

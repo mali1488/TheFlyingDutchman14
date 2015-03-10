@@ -24,6 +24,7 @@ angular.module('Dutchman')
 
 	}
 	$scope.inc = function(item){
+		console.log("inc");
 		Order.inc(item);
 	}
 

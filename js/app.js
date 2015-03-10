@@ -9,9 +9,9 @@ angular.module('Dutchman', ['pascalprecht.translate','ngCookies','ngRoute', 'ngR
     // Login page
     USERNAME: 'Enter username', PASSWORD: 'Enter password', LOGIN: 'Login',
     // index page
-    HOME: 'Home', SETTINGS: 'Settings', HELP: 'Help', LOGOUT: 'Logout',
+    HOME: 'Home', SETTINGS: 'Settings', HELP: 'Help', LOGOUT: 'Logout', ADDUSER: 'Edit users',
     // Product page
-    REESTOCK: 'Need to be restocked: ', TYPE: 'Type', PRICE: 'Price: ', STOCK: 'Stock: ', SEARCH: 'Search...', POPULAR: 'Most popular products',
+    STOCKOUT: 'Out of stock', REESTOCK: 'Need to be restocked: ', TYPE: 'Type', PRICE: 'Price: ', STOCK: 'Stock: ', SEARCH: 'Search...', POPULAR: 'Most popular products',
     // Settings page
     THEME: 'theme: ', DEFAULT: 'Default', XMAS: 'Christmas',
     // Help page
@@ -21,15 +21,17 @@ angular.module('Dutchman', ['pascalprecht.translate','ngCookies','ngRoute', 'ngR
     // Order page
     REDO: 'Redo', UNDO: 'Undo', CHECKOUT: 'Checkout', ORDER: 'Order',
     // Order history
-    POPULAR: 'Most popular products', ORDERS: "Orders", ORDERLOG : "All orders"
+    POPULAR: 'Most popular products', ORDERS: "Orders", ORDERLOG : "All orders",
+    // infomodal
+    ALKSTR: 'Alcohol strength', DETAILS: 'Details', PROPDET: 'Product details', PRODUCER: 'Producer', ORIGIN: 'Origin'
   }).
   translations('swe', {
     // Login page
     USERNAME: 'Ange användarnamn', PASSWORD: 'Ange lösenord', LOGIN: 'Logga in',
     // index page
-    HOME: 'Start', SETTINGS: 'Verktyg', HELP: 'Hjälp', LOGOUT: 'Logga ut',
+    HOME: 'Start', SETTINGS: 'Verktyg', HELP: 'Hjälp', LOGOUT: 'Logga ut',ADDUSER: 'Editera användare',
     // Product page
-    REESTOCK: 'Behöver fyllas på: ', TYPE: 'Sort', PRICE: 'Pris: ', STOCK: 'Lager: ', SEARCH: 'Sök...',POPULAR: 'Mest köpta produkterna',
+    STOCKOUT: 'Slut', REESTOCK: 'Behöver fyllas på: ', TYPE: 'Sort', PRICE: 'Pris: ', STOCK: 'Lager: ', SEARCH: 'Sök...',POPULAR: 'Mest köpta produkterna',
     // Settings page
     THEME: 'Tema: ', DEFAULT: 'Standard', XMAS: 'Jultema',
     // Help page
@@ -39,7 +41,9 @@ angular.module('Dutchman', ['pascalprecht.translate','ngCookies','ngRoute', 'ngR
     // Order page
     REDO: 'Gör om', UNDO: 'Ångra', CHECKOUT: 'Checka ut', ORDER: 'Beställning',
     // Order history
-    ORDERS: "Beställningar", ORDERLOG : "Samtliga beställningar"
+    ORDERS: "Beställningar", ORDERLOG : "Samtliga beställningar",
+    // infomodal
+    ALKSTR: 'Alkohol styrka', DETAILS: 'Detaljer', PROPDET: 'Produkt detaljer', PRODUCER: 'Producent', ORIGIN: 'Ursprungsland'
   }),
 
   $routeProvider.when('/products',					  // you visit the corresponding url

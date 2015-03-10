@@ -1,15 +1,28 @@
 angular.module('Dutchman')
-.controller('ProductIndexCtrl', ['$location','$timeout','Inventory','$rootScope','$cookieStore','$scope','Products', 'Order', '$modal', 
-function($location,$timeout,Inventory,$rootScope,$cookieStore,$scope, Products,Order ,$modal){
+.controller('ProductIndexCtrl', ['Undo','$location','$timeout','Inventory','$rootScope','$cookieStore','$scope','Products', 'Order', '$modal', 
+function(Undo,$location,$timeout,Inventory,$rootScope,$cookieStore,$scope, Products,Order ,$modal){
 
+	$scope.popular = [];
 	$scope.products = [];
 	$rootScope.user = $cookieStore.get('userInfo');
-
 	$rootScope.curDraggable = {};
 
 	// Load the product list
 	Products.all().success(function(data){
 		$scope.products = data.payload;
+
+		// set popular products
+		var i = 0;
+		var counter = 0;
+		while(counter != 3) {
+			if($scope.products[i].count > 0 && $scope.products[i].price < 20 ) {
+				console.log("count");
+				$scope.popular[counter] = $scope.products[i];
+				console.log($scope.popular[counter]);
+				counter ++;
+			}
+			i++;
+		}
 	});
 
 	// start timer for a user, 30000 ms = 30 seconds
@@ -25,8 +38,9 @@ function($location,$timeout,Inventory,$rootScope,$cookieStore,$scope, Products,O
 		$location.path('/logout');
 	}
 
-	$scope.buy = function(id){
-		Order.add(id);
+	$scope.buy = function(product){
+		Undo.addCommando('add',product);
+		Order.add(product);
 	}	
 
 	$scope.reeStock = function(id,amount, price) {

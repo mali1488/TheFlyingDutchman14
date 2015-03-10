@@ -1,3 +1,49 @@
+<h3>{{ 'POPULAR' | translate}}</h3>
+<div class="col-md-9">
+<ul class="row list-unstyled">
+  <li ng-repeat="pop in popular">
+      <div class="col-md-3 well productpanel">
+
+        <div class="row">
+          <h3>{{pop.namn}}</h3>
+          <div class="col-md-5">
+            <img ng-src="img/products/{{pop.beer_id}}_thmb.jpg" class="thumbnail img-rounded" ng-click="openInfo(pop)" ng-if="user.role === 'vip'">
+            <img ng-src="img/products/{{pop.beer_id}}_thmb.jpg" class="thumbnail img-rounded" ng-click="reeStockInfo(pop,pop.count)" ng-if="user.role === 'admin'">
+          </div>
+          <div class="col-md-7">
+            <dl>
+            <dt>{{'TYPE' | translate}}</dt>
+            <dd>{{pop.namn2}}</dd>
+            <dt>{{'PRICE' | translate}}</dt>
+            <dd><em>{{pop.price}}</em> kr</dd>
+            <dt>{{'STOCK' | translate}}</dt>
+            <div ng-if="pop.count > 0">
+              <dd>{{pop.count}}</dd>
+            </div>
+            <div ng-if="pop.count <= 0">
+              <dd style="color:red">{{ 'STOCKOUT' | translate}}</dd>
+            </div>
+            </dl>
+          </div>
+        </div> <!--row-->
+                  
+
+          <!-- The green buy button -->
+          <button type="button" class="btn btn-success buybtn" ng-show="pop.count > 0" ng-click="buy(pop.beer_id)"><span class="glyphicon glyphicon-plus"></span></button>
+
+
+          <!-- The red reestock button-->
+          <a href="" type="button" ng-show="user.role === 'admin'" class="btn btn-danger buybtn" ng-click="reeStockInfo(pop,pop.count)"><span class="glyphicon glyphicon-plus"></span></a>
+
+          <!-- The blue info button -->
+          <a href="" type="button" ng-show="user.role === 'vip'" class="btn btn-info infobtn pull-right" ng-click="openInfo(pop)"><span class="glyphicon glyphicon-info-sign"></span></a>
+
+      </div>
+  </li>
+</ul>
+<h3>rest</h3>
+</div>
+	
 <div class="col-md-9">
 <ul class="row list-unstyled">
 	<li ng-repeat = "product in products | filter:query |orderBy:namn" ng-if="product.beer_id > 20000&&product.namn !== ''">
@@ -15,22 +61,20 @@
 					</div>
 					<div class="col-md-7">
 						<dl>
-						<dt>Type</dt>
+						<dt>{{'TYPE' | translate}}</dt>
 						<dd>{{product.namn2}}</dd>
-						<dt>Price:</dt>
+						<dt>{{'PRICE' | translate}}</dt>
 						<dd><em>{{product.price}}</em> kr</dd>
-						<dt>Stock:</dt>
+						<dt>{{'STOCK' | translate}}</dt>
 						<div ng-if="product.count > 0">
 							<dd>{{product.count}}</dd>
 						</div>
 						<div ng-if="product.count <= 0">
-							<dd style="color:red">Out of stock</dd>
+							<dd style="color:red">{{'STOCKOUT' | translate}}</dd>
 						</div>
 						</dl>
 					</div>
 				</div> <!--row-->
-									
-
 
 					<!-- The green buy button -->
 					<button type="button" class="btn btn-success buybtn" ng-show="product.count > 0" ng-click="buy(product)"><span class="glyphicon glyphicon-plus"></span></button>
