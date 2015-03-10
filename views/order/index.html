@@ -1,5 +1,22 @@
+<div class="orderpane">
 <h1>Order</h1>
-<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias itaque fugiat pariatur blanditiis. Dolores eius voluptatum illo ut suscipit, neque et consectetur aut repellat, quaerat commodi dolore autem similique itaque.</p>
+<hr>
+<div class="well" style="max-height: 400px;overflow-y:scroll;"
+data-drop="true" jqyoui-droppable = "{onDrop: 'drop(item)'}">
 <ul class="list-unstyled">
-	<li ng-repeat="item in order">{{item}}</li>
+	<li ng-repeat="item in order.items">
+	<div class="alert alert-sm alert-info"><h4>{{item.product.namn}}</h4> <small>Quantity: 
+	<a href="" ng-click="dec(item)"><i class="glyphicon glyphicon-minus"></i></a> {{item.quantity}} 
+	<a href="" ng-click="inc(item)"><i class="glyphicon glyphicon-plus"></i></a>
+	</small>
+	<a href="" ng-click="removeFromOrder(item)"><i class="glyphicon glyphicon-remove pull-right"></i></a>
+	<em>{{item.product.price}} kr </em>
+	</div>
+	</li>
 </ul>
+<hr>	
+</div>
+<h4><em>{{order.total}} kr </em></h4>
+<button class="btn btn-lg btn-success" data-ng-disabled="order.length <= 0"
+	ng-click="checkout()">Checkout</button>
+</div>

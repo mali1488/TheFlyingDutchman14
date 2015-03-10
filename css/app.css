@@ -113,3 +113,9 @@ ul li {
 .top-buffer { 
   margin-top:150px;
 }
+
+
+
+.orderpane h4 {
+  display: inline;
+}

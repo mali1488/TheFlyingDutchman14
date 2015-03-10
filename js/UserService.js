@@ -52,6 +52,8 @@ angular.module('Dutchman')
 				else if(data.type.search('iou_get') === 0){
 					callback({authenticated : true, msg: "Success!"});
 				}*/
+
+				callback({authenticated : true, msg: "Success!"});
 			});
 
 		}, 

@@ -7,7 +7,10 @@
 				<div class="row">
 					<h3>{{product.namn}}</h3>
 					<div class="col-md-5">
-						<img ng-src="img/products/{{product.beer_id}}_thmb.jpg" class="thumbnail img-rounded" ng-click="openInfo(product)" ng-if="user.role === 'vip'">
+						<img ng-src="img/products/{{product.beer_id}}_thmb.jpg" class="thumbnail img-rounded" ng-click="openInfo(product)" ng-if="user.role === 'vip'"
+						data-drag = "true" 
+						data-jqyoui-options="{revert: 'invalid', helper: 'clone'}"
+						jqyoui-draggable="{onStart: 'startDrag(product)', placeholder:'keep'}">
 						<img ng-src="img/products/{{product.beer_id}}_thmb.jpg" class="thumbnail img-rounded" ng-click="reeStockInfo(product,product.count)" ng-if="user.role === 'admin'">
 					</div>
 					<div class="col-md-7">
@@ -28,9 +31,9 @@
 				</div> <!--row-->
 									
 
-					<!-- The green buy button -->
-					<button type="button" class="btn btn-success buybtn" ng-show="product.count > 0" ng-click="buy(product.beer_id)"><span class="glyphicon glyphicon-plus"></span></button>
 
+					<!-- The green buy button -->
+					<button type="button" class="btn btn-success buybtn" ng-show="product.count > 0" ng-click="buy(product)"><span class="glyphicon glyphicon-plus"></span></button>
 
 					<!-- The red reestock button-->
 					<a href="" type="button" ng-show="user.role === 'admin'" class="btn btn-danger buybtn" ng-click="reeStockInfo(product,product.count)"><span class="glyphicon glyphicon-plus"></span></a>

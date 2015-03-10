@@ -3,7 +3,10 @@ angular.module('Dutchman')
 function($location,$timeout,Inventory,$rootScope,$cookieStore,$scope, Products,Order ,$modal){
 
 	$scope.products = [];
-	$scope.user = $cookieStore.get('userInfo');
+	$rootScope.user = $cookieStore.get('userInfo');
+
+	$rootScope.curDraggable = {};
+
 	// Load the product list
 	Products.all().success(function(data){
 		$scope.products = data.payload;
@@ -84,4 +87,12 @@ function($location,$timeout,Inventory,$rootScope,$cookieStore,$scope, Products,O
 			}
 		});
 	}
+
+
+	$scope.startDrag = function(event, ui, item){
+		console.log("Drag started!!");
+		$rootScope.curDraggable = item;
+		console.log($rootScope.curDraggable);
+	}
+
 }]);

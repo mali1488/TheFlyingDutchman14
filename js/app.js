@@ -1,7 +1,7 @@
 'use strict';
 
 // Declare app level module which depends on views, and components
-angular.module('Dutchman', ['pascalprecht.translate','ngCookies','ngRoute', 'ngResource', 'ui.bootstrap.modal',"template/modal/backdrop.html","template/modal/window.html",
+angular.module('Dutchman', ['pascalprecht.translate','ngCookies','ngRoute', 'ngResource', 'ngDragDrop', 'ui.bootstrap.modal',"template/modal/backdrop.html","template/modal/window.html",
 	'ui.bootstrap.accordion','template/accordion/accordion-group.html','template/accordion/accordion.html'])
 
 .config(['$routeProvider',  '$translateProvider', function($routeProvider,$translateProvider) { // This tells angular to render a specific view when 
