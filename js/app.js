@@ -18,7 +18,8 @@ angular.module('Dutchman', ['pascalprecht.translate','ngCookies','ngRoute', 'ngR
     CONTACT: 'Contact us ', HERE: 'here',
     // Log out page
     LOGINAGAIN: 'Log in', LOGOUTMSG: 'Thank you!',
-    POPULAR: 'Most popular products'
+    // Order page
+    REDO: 'Redo', UNDO: 'Undo', CHECKOUT: 'Checkout', ORDER: 'Order'
   }).
   translations('swe', {
     // Login page
@@ -32,7 +33,9 @@ angular.module('Dutchman', ['pascalprecht.translate','ngCookies','ngRoute', 'ngR
     // Help page
     CONTACT: 'Kontakta oss ', HERE: 'här',
     // Log out page
-    LOGINAGAIN: 'Logga in', LOGOUTMSG: 'Tack och välkommen åter!'
+    LOGINAGAIN: 'Logga in', LOGOUTMSG: 'Tack och välkommen åter!',
+    // Order page
+    REDO: 'Gör om', UNDO: 'Ångra', CHECKOUT: 'Checka ut', ORDER: 'Beställning'
   }),
 
   $routeProvider.when('/products',					  // you visit the corresponding url
