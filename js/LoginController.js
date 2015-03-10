@@ -26,6 +26,7 @@ angular.module('Dutchman')
 		this.auth = {};
 		var self = this;
 		User.authenticate(user,function(data){
+			data.authenticated = true;
 			if(data.authenticated){
 
 				//set initial variables

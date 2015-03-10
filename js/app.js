@@ -6,21 +6,33 @@ angular.module('Dutchman', ['pascalprecht.translate','ngCookies','ngRoute', 'ngR
 
 .config(['$routeProvider',  '$translateProvider', function($routeProvider,$translateProvider) { // This tells angular to render a specific view when 
   $translateProvider.translations('en', {
-    USERNAME: 'Enter username',
-    PASSWORD: 'Enter password',
-    HOME: 'Home',
-    SETTINGS: 'Settings',
-    HELP: 'Help',
-    LOGOUT: 'Logout'
+    // Login page
+    USERNAME: 'Enter username', PASSWORD: 'Enter password', LOGIN: 'Login',
+    // index page
+    HOME: 'Home', SETTINGS: 'Settings', HELP: 'Help', LOGOUT: 'Logout',
+    // Product page
+    REESTOCK: 'Need to be restocked: ', TYPE: 'Type', PRICE: 'Price: ', STOCK: 'Stock: ', SEARCH: 'Search...', POPULAR: 'Most popular products',
+    // Settings page
+    THEME: 'theme: ', DEFAULT: 'Default', XMAS: 'Christmas',
+    // Help page
+    CONTACT: 'Contact us ', HERE: 'here',
+    // Log out page
+    LOGINAGAIN: 'Log in', LOGOUTMSG: 'Thank you!',
+    POPULAR: 'Most popular products'
   }).
   translations('swe', {
-    // login page
-    USERNAME: 'Ange användarnamn',
-    PASSWORD: 'Ange lösenord',
-    HOME: 'Start',
-    SETTINGS: 'Verktyg',
-    HELP: 'Hjälp',
-    LOGOUT: 'Logga ut'
+    // Login page
+    USERNAME: 'Ange användarnamn', PASSWORD: 'Ange lösenord', LOGIN: 'Logga in',
+    // index page
+    HOME: 'Start', SETTINGS: 'Verktyg', HELP: 'Hjälp', LOGOUT: 'Logga ut',
+    // Product page
+    REESTOCK: 'Behöver fyllas på: ', TYPE: 'Sort', PRICE: 'Pris: ', STOCK: 'Lager: ', SEARCH: 'Sök...',POPULAR: 'Mest köpta produkterna',
+    // Settings page
+    THEME: 'Tema: ', DEFAULT: 'Standard', XMAS: 'Jultema',
+    // Help page
+    CONTACT: 'Kontakta oss ', HERE: 'här',
+    // Log out page
+    LOGINAGAIN: 'Logga in', LOGOUTMSG: 'Tack och välkommen åter!'
   }),
 
   $routeProvider.when('/products',					  // you visit the corresponding url

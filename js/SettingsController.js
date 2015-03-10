@@ -2,6 +2,7 @@ angular.module('Dutchman')
 
 .controller('SettingsCtrl',['$scope','$rootScope','$cookieStore',function($scope,$rootScope,$cookieStore){
 	$rootScope.theme = $cookieStore.get('theme');
+	$rootScope.themeUrl = $cookieStore.get('themeUrl');
 	$scope.started = false;
 	$scope.christmasBtn = false;
 	$rootScope .language= $cookieStore.get('language');
@@ -16,8 +17,12 @@ angular.module('Dutchman')
 				$scope.christmasBtn = false;
 				break;
 			case "christmas":
-				$cookieStore.put('theme','christmas');
-				$rootScope.theme = 'christmas';
+				$cookieStore.put('theme','red');
+				$cookieStore.put('themeUrl','img/themes/sc.jpg');
+				console.log("red");
+				$rootScope.theme = 'red';
+				$rootScope.themeUrl = 'img/themes/sc.jpg';
+				console.log($rootScope.themeUrl);
 				$scope.christmasBtn = true;
 				$scope.defaultBtn = false;
 				break;

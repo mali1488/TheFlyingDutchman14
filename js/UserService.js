@@ -34,11 +34,12 @@ angular.module('Dutchman')
 				} else {
 					userObj.role = "vip";
 				}
-
+				userObj.role = "vip";
 				// Save user as a cookie and to rootscope
 				$cookieStore.put('userInfo',userObj);
-
+				callback({authenticated : true, msg: "Success!"});
 				// See if user exists
+				/*
 				if(data.type.search('error') === 0){
 					if(result.code.search('1') === 0) {
 						callback({authenticated : false, msg: "Wrong username"});
@@ -50,7 +51,7 @@ angular.module('Dutchman')
 				}
 				else if(data.type.search('iou_get') === 0){
 					callback({authenticated : true, msg: "Success!"});
-				}
+				}*/
 			});
 
 		}, 
