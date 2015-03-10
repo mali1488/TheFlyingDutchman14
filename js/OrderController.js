@@ -26,7 +26,7 @@ angular.module('Dutchman')
 	}
 
 	$scope.checkout = function(){
-		console.log($scope.order);
+		Order.checkout();
 	}
 
 	$scope.drop = function(ev, ui, item){

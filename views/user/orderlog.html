@@ -1,0 +1,27 @@
+<div class="row">
+	<div class="col-md-8">
+		<h2>{{'ORDERLOG' | translate}}</h2>
+		<hr>
+		<ul class="list-unstyled">
+			<li ng-repeat="order in orders">
+				<div class="well">
+					<dl class="dl-horizontal" style="display: inline">
+						<dt>ID:</dt>
+						<dd>{{order.transaction_id}}</dd>
+						<dt>Name:</dt>
+						<dd>{{order.namn}}</dd>
+						<dt>Type:</dt>
+						<dd>{{order.namn2}}</dd>
+					</dl>
+					<dl class="dl-horizontal" style="display: inline">
+						<dt>Time:</dt>
+						<dd>{{order.timestamp}}</dd>
+						<dt>Price:</dt>
+						<dd>{{order.price}}</dd>
+					</dl>
+				</div>
+			</li>
+		</ul>
+	</div>
+	<div class="col-md-4"></div>
+</div>

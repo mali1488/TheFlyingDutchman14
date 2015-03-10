@@ -16,7 +16,7 @@ data-drop="true" jqyoui-droppable = "{onDrop: 'drop(item)'}">
 </ul>
 <hr>	
 </div>
-<h4><em>{{order.total}} kr </em></h4>
+<h3>Total: <em>{{(order.total | number: 2) + " kr"}}</em></h3>
 <button class="btn btn-lg btn-success" data-ng-disabled="order.length <= 0"
 	ng-click="checkout()">Checkout</button>
 </div>
