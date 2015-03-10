@@ -19,7 +19,9 @@ angular.module('Dutchman', ['pascalprecht.translate','ngCookies','ngRoute', 'ngR
     // Log out page
     LOGINAGAIN: 'Log in', LOGOUTMSG: 'Thank you!',
     // Order page
-    REDO: 'Redo', UNDO: 'Undo', CHECKOUT: 'Checkout', ORDER: 'Order'
+    REDO: 'Redo', UNDO: 'Undo', CHECKOUT: 'Checkout', ORDER: 'Order',
+    // Order history
+    POPULAR: 'Most popular products', ORDERS: "Orders", ORDERLOG : "All orders"
   }).
   translations('swe', {
     // Login page
@@ -35,7 +37,9 @@ angular.module('Dutchman', ['pascalprecht.translate','ngCookies','ngRoute', 'ngR
     // Log out page
     LOGINAGAIN: 'Logga in', LOGOUTMSG: 'Tack och välkommen åter!',
     // Order page
-    REDO: 'Gör om', UNDO: 'Ångra', CHECKOUT: 'Checka ut', ORDER: 'Beställning'
+    REDO: 'Gör om', UNDO: 'Ångra', CHECKOUT: 'Checka ut', ORDER: 'Beställning',
+    // Order history
+    ORDERS: "Beställningar", ORDERLOG : "Samtliga beställningar"
   }),
 
   $routeProvider.when('/products',					  // you visit the corresponding url
@@ -71,6 +75,11 @@ angular.module('Dutchman', ['pascalprecht.translate','ngCookies','ngRoute', 'ngR
   when('/adduser',{
     templateUrl : 'views/user/adduser.html',
     controller: 'UserCtrl' // Add the controller to the view
+  }).
+  when('/orderlog', {
+    templateUrl : 'views/user/orderlog.html',
+    controller: 'OrderLogCtrl',
+    controllerAs: 'LogCtrl'
   }).
   otherwise({redirectTo: '/products'}); // A default route for anything that does not match a specific route.
 

@@ -1,7 +1,7 @@
-// Data service for products
+	// Data service for products
 
 angular.module('Dutchman')
-.factory('Order', function ProductsFactory(){
+.factory('Order', ['$rootScope','$http', function ProductsFactory($rootScope, $http){
 	this.order = {items : [], total : 0};
 
 	var self = this;
@@ -48,12 +48,25 @@ angular.module('Dutchman')
 		},
 
 		checkout: function(){
-			if(self.order.lenght > 0){
-				$http.post();
+			var dbUrl = "http://pub.jamaica-inn.net/fpdb/api.php?";
+			var user = $rootScope.user.user_name;
+			console.log(user);
+			if(self.order.items.length > 0){
+				for (var i = 0; i < self.order.items.length; i++) {
+					var item = self.order.items[i];
+					var url = dbUrl + "username=" + user + "&password=" + user +
+							 "&action=purchases_append&beer_id=" + item.id; 
+					console.log(url);
+					$http.post(url, "").success(function(data){
+						console.log(data);
+					});
+				};
 			}
+			self.order.items = [];
+			updateTotal(self.order);
 		}
 	}
-});
+}]);
 
 
 function exist(id, list){
@@ -71,7 +84,7 @@ function exist(id, list){
 function updateTotal(order){
 	var total = 0;
 	for(var i = 0; i < order.items.length;i++){
-		total += parseFloat(order.items[i].product.price)*parseFloat(order.items[i].quantity);
+		total +=parseFloat(order.items[i].product.price)*parseFloat(order.items[i].quantity);
 	}
 	order.total = total;
 }

@@ -63,6 +63,14 @@ angular.module('Dutchman')
 			  + formData.email + "&phone=" + formData.phone + "&amount=" + formData.amount + "");
 			console.log(httpPostForm);
 			return httpPostForm;
+		},
+
+		getAllOrders: function(callback){
+			var user = $rootScope.user.user_name;
+			$http.get(dbUrl + "username=" + user + "&password=" + user + "&action=purchases_get").
+			success(function(data){
+				callback(data.payload);
+			});
 		}
 	};
 
