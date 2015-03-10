@@ -1,32 +1,78 @@
 angular.module('Dutchman')
 
-.controller('LoginCtrl',['$cookieStore','$scope','User', '$location','$rootScope',function($cookieStore,$scope, User, $location,$rootScope){
+.controller('LoginCtrl',['$translate','$window','Auth','$cookieStore','$scope','User', '$location','$rootScope','$modal',
+	function($translate,$window,Auth,$cookieStore,$scope, User, $location,$rootScope,$modal,$dialogs){
 
+	$translate.use('swe');
+	$rootScope.loggedIn = $cookieStore.get('loggedin');
+	$scope.drop = false;
+	
+	$scope.lang = function(lang){
+		switch (lang){
+			case 'swe':
+				console.log("swe");
+				$translate.use('swe');
+			break;
+			case 'en':
+				console.log("en");
+				$translate.use('en');
+			break;
+		}
+		
+
+	};
 
 	$scope.authenticate = function(user){
 		this.auth = {};
 		var self = this;
-		//User is the factory UserService
 		User.authenticate(user,function(data){
+			data.authenticated = true;
 			if(data.authenticated){
+
+				//set initial variables
+				if($cookieStore.get('theme') === undefined) {
+					$cookieStore.put('theme','default');
+					$rootScope.theme = 'default';
+				}
+				$cookieStore.put('loggedin',true);
+				$rootScope.loggedIn = true;
+
+				//change view
 				$location.path('/products');
 			} else {
-				alert(data.msg);
+				// wring username or password
+				$scope.openAlert(data.msg);
 			}
 		});
+		
 	}
 
 	$scope.logOut = function(){
-		// ---coockie test---
-		//console.log("cookie get");
-		//console.log($cookieStore.get('userInfo'));
-		// -----endtest------
-
-		// Fetsch user info. Need to do this when page has been refreshed.
+		// Fetch user info. Need to do this when page has been refreshed.
 		$rootScope.currentUser = $cookieStore.get('userInfo');
-		// Remove the cookie
+		$cookieStore.put('loggedin',false);
+		$rootScope.loggedin = false;
 		$cookieStore.remove('userInfo');
+		$cookieStore.remove('loggedin');
+		$rootScope.currentUser = null;
 		$location.path('/logout');
 	}
+
+	$scope.openAlert = function(msg){
+			$scope.message = msg;
+			modalInstance = $modal.open({
+				templateUrl: 'views/login/loginmodal.html',
+				windowClass: 'center-modal',
+				controller: function($scope){
+							$scope.message = msg;
+							// Just closes the modal.
+							$scope.ok = function(){
+								modalInstance.close();
+								modalInstance = null;
+							}
+						
+				}
+			});
+		}
 
 }]);

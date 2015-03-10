@@ -1,0 +1,25 @@
+<div class="row">
+	<div class="col-sm-2">
+		<b>Theme:  </b>
+	</div>
+	<div class="col-sm-1">
+		<button ng-click="themeChoose('default')" type="button" ng-class="{'btn': theme !== 'default', 'btn btn-primary': theme === 'default'}" aria-label="Left Align"> Default</button>
+	</div>	
+	<div class="col-sm-1">
+		<button ng-click="themeChoose('christmas')" type="button" ng-class="{'btn': theme !== 'christmas', 'btn btn-primary': theme === 'christmas'}" aria-label="Left Align"> Christmas</button>
+	</div>
+</div>
+
+<br>
+
+<div class="row">
+	<div class="col-sm-2">
+		<b>Language:  </b>
+	</div>
+	<div class="col-sm-1">
+		<button ng-click="languageChoose('swe')" type="button" ng-class="{'btn': language !== 'swe', 'btn btn-primary': language === 'swe'}" aria-label="Left Align"> Svenska</button>
+	</div>
+	<div class="col-sm-1">
+		<button ng-click="languageChoose('eng')" type="button" ng-class="{'btn': language !== 'english', 'btn btn-primary': language === 'eng'}" aria-label="Left Align"> English</button>
+	</div>
+</div>

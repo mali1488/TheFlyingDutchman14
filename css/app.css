@@ -17,8 +17,28 @@ ul li {
   margin-bottom:0px;  
   vertical-align: top;         
 }
+#videoScaleOld
+{ 
+  position: absolute; 
+  top: 0; 
+  left: 0; 
+  width: 100%; 
+  height: 140%; 
+}
 
+#videoScale 
+{ 
+  position: absolute; 
+  margin-top: -100px;
+  top: 0; 
+  left: 0; 
+  width: 100%; 
+  height: 140%; 
+}
 
+.buttonHolder{ 
+  text-align: center;
+}
 
 .visibleDiv, #topLeft, #topRight, #bottomLeft, #bottomRight
 {
@@ -43,6 +63,12 @@ ul li {
     right: 10px;
 }
 
+#topRightLi
+{
+    top: 80px;
+    right: 10px;
+    overflow: auto
+}
 #bottomLeft
 {
     bottom: 10px;
@@ -82,4 +108,14 @@ ul li {
   transition: .5 ease;
   top: 1%;
   right: 20%;
+}
+
+.top-buffer { 
+  margin-top:150px;
+}
+
+
+
+.orderpane h4 {
+  display: inline;
 }
