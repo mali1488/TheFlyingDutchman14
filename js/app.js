@@ -1,4 +1,4 @@
-'use strict';
+//use strict';
 
 // Declare app level module which depends on views, and components
 angular.module('Dutchman', ['pascalprecht.translate','ngCookies','ngRoute', 'ngResource', 'ngDragDrop', 'ui.bootstrap.modal',"template/modal/backdrop.html","template/modal/window.html",
