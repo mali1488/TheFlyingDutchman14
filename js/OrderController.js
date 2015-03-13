@@ -2,7 +2,8 @@
 // This is the controller for the Order view.
 angular.module('Dutchman')
 
-.controller('OrderCtrl', ['$scope','$rootScope','Order' ,function($scope,$rootScope, Order){
+.controller('OrderCtrl', ['$scope','$rootScope','Order', '$location' , '$cookieStore',
+	function($scope,$rootScope, Order, $location, $cookieStore){
 	
 	$scope.order = Order.all();
 	
@@ -26,7 +27,16 @@ angular.module('Dutchman')
 	}
 
 	$scope.checkout = function(){
-		Order.checkout();
+		Order.checkout(function(result){
+			console.log("Redirect /receipt");
+			$rootScope.loggedIn = false;
+			$cookieStore.remove('loggedIn');
+
+			$rootScope.currentUser = $cookieStore.get('userInfo');
+			$cookieStore.remove('userInfo');
+			$location.path('/receipt');
+		});
+
 	}
 
 	$scope.drop = function(ev, ui, item){

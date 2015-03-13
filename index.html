@@ -73,11 +73,11 @@
       <!-- Here the views get rendered -->
       <div ng-view></div>
     </div>
-    <div id="topRight" ng-show="user.role === 'vip'">
+    <div id="topRight" ng-show="user.role === 'vip'" ng-if="loggedIn">
       <order-pane></order-pane>
     </div>
 
-    <div id="topRight" ng-show="user.role === 'admin'">
+    <div id="topRight" ng-show="user.role === 'admin'" ng-if="loggedIn">
       <restock-pane></restock-pane>
     </div>
 
@@ -110,6 +110,7 @@
   <script src="js/UsersFactory.js"></script>
   <script src="js/UserController.js"></script>
   <script src="js/OrderLogController.js"></script>
+  <script src="js/ReceiptController.js"></script>
   <script src="js/angular-translate/angular-translate.js"></script>
 
 </body>

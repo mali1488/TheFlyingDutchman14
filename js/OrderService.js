@@ -1,8 +1,10 @@
 	// Data service for products
 
 angular.module('Dutchman')
-.factory('Order', ['$rootScope','$http', function ProductsFactory($rootScope, $http){
+.factory('Order', ['$rootScope','$http', function OrderFactory($rootScope, $http){
 	this.order = {items : [], total : 0};
+	this.receipt = {};
+
 
 	var self = this;
 	return {
@@ -23,6 +25,8 @@ angular.module('Dutchman')
 		},
 		update: function(item){
 		},
+
+
 		delete: function(item){
 			var i = exist(item.id, self.order.items);
 			if(i >= 0){
@@ -47,23 +51,34 @@ angular.module('Dutchman')
 			updateTotal(self.order);
 		},
 
-		checkout: function(){
+		checkout: function(callback){
 			var dbUrl = "http://pub.jamaica-inn.net/fpdb/api.php?";
 			var user = $rootScope.user.user_name;
-			console.log(user);
+			self.receipt.time = new Date();
+			self.receipt.total = 0;
+			self.receipt.items = self.order.items.slice();
+			updateTotal(self.receipt);
+
 			if(self.order.items.length > 0){
 				for (var i = 0; i < self.order.items.length; i++) {
 					var item = self.order.items[i];
 					var url = dbUrl + "username=" + user + "&password=" + user +
 							 "&action=purchases_append&beer_id=" + item.id; 
-					console.log(url);
+				
 					$http.post(url, "").success(function(data){
-						console.log(data);
+						console.log("purchases success!", data);
 					});
 				};
 			}
+			callback();
+			console.log("Receipt", self.receipt);
 			self.order.items = [];
 			updateTotal(self.order);
+		},
+
+
+		getReceipt: function(){
+			return self.receipt;
 		}
 	}
 }]);

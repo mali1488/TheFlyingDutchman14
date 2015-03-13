@@ -19,7 +19,7 @@ angular.module('Dutchman', ['pascalprecht.translate','ngCookies','ngRoute', 'ngR
     // Log out page
     LOGINAGAIN: 'Log in', LOGOUTMSG: 'Thank you!',
     POPULAR: 'Most popular products',
-    ORDERS: "Orders",
+    ORDERS: "Order history",
     ORDERLOG : "All orders"
   }).
   translations('swe', {
@@ -35,7 +35,7 @@ angular.module('Dutchman', ['pascalprecht.translate','ngCookies','ngRoute', 'ngR
     CONTACT: 'Kontakta oss ', HERE: 'här',
     // Log out page
     LOGINAGAIN: 'Logga in', LOGOUTMSG: 'Tack och välkommen åter!',
-    ORDERS: "Beställningar",
+    ORDERS: "Beställningshistorik",
     ORDERLOG : "Samtliga beställningar"
   }),
 
@@ -77,6 +77,10 @@ angular.module('Dutchman', ['pascalprecht.translate','ngCookies','ngRoute', 'ngR
     templateUrl : 'views/user/orderlog.html',
     controller: 'OrderLogCtrl',
     controllerAs: 'LogCtrl'
+  }).
+  when('/receipt', {
+    templateUrl : 'views/order/receipt.html',
+    controller: 'ReceiptCtrl'
   }).
   otherwise({redirectTo: '/products'}); // A default route for anything that does not match a specific route.
 

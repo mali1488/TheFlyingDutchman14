@@ -1,0 +1,24 @@
+<h1>Receipt</h1>
+<hr>
+<div class="well">
+	<h3>ID: {{receipt.id}}</h3>
+	<em>{{receipt.time}}</em>
+	<ul class="list-unstyled">
+		<li ng-repeat="item in receipt.items">
+			<dl class="dl-horizontal" style="display: inline">
+				<dt>ID:</dt>
+				<dd>{{item.product.beer_id}}</dd>
+				<dt>Name:</dt>
+				<dd>{{item.product.namn}}</dd>
+				<dt>Price:</dt>
+				<dd>{{item.product.price | number : 2 + " kr"}}</dd>
+				<dt>Quantity: </dt>
+				<dd>{{item.quantity}}</dd>
+			</dl>
+		</li>
+	</ul>
+	<h3>Total: <em>{{(receipt.total | number: 2) + " kr"}}</em></h3>
+</div>
+
+<h1>Tack och välkommen åter!</h1>
+<pre>{{receipt}}</pre>
