@@ -6,11 +6,17 @@ angular.module('Dutchman')
 	var UserInfo;
 	var self = this;
 
-	// We need this because there are no role field in the API database...
+	/* We need this because there are no role field in the API database...
+	   This is purely harcoded informations due to database impolementation.
+	*/
 	var admins = [
 		'Ervin','Hiram','Jory','Sasa','Sasa'
 	];
 
+	/* Check if a person that loggs in is in the admins array.
+	   This due to no field in the databaes that desribes a users
+	   certain role.
+	*/
 	function checkAdmin(name){
 		var length = admins.length;
 		for(var i = 0; i < length; i++){

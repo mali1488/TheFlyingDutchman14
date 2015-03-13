@@ -13,7 +13,7 @@ angular.module('Dutchman', ['pascalprecht.translate','ngCookies','ngRoute', 'ngR
     // Product page
     STOCKOUT: 'Out of stock', REESTOCK: 'Need to be restocked: ', TYPE: 'Type', PRICE: 'Price: ', STOCK: 'Stock: ', SEARCH: 'Search...', POPULAR: 'Most popular products',
     // Settings page
-    THEME: 'theme: ', DEFAULT: 'Default', XMAS: 'Christmas',
+    THEME: 'theme: ', DEFAULT: 'Default', XMAS: 'Christmas', 
     // Help page
     CONTACT: 'Contact us ', HERE: 'here',
     // Log out page
