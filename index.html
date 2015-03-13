@@ -3,6 +3,7 @@
 <!--[if IE 7]>         <html lang="en" ng-app="myApp" class="no-js lt-ie9 lt-ie8"> <![endif]-->
 <!--[if IE 8]>         <html lang="en" ng-app="myApp" class="no-js lt-ie9"> <![endif]-->
 <!--[if gt IE 8]><!--> 
+<!-- Most popular products -->
 <html lang="en" class="no-js"> <!--<![endif]-->
 <head>
   <meta charset="utf-8">
@@ -27,6 +28,7 @@
             <li ><a href="#settings">{{'SETTINGS' | translate}}</a></li>
             <li ><a href="#help">{{'HELP' | translate}}</a></li>
             <li><a ng-href="#orderlog">{{'ORDERS' | translate}}</a></li>
+            <li><a ng-href="#adduser">{{'ADDUSER' | translate}}</a></li>
           </ul>
 
           <ul class="nav navbar-nav navbar-right">
@@ -68,7 +70,7 @@
   <div class="container" ng-contoller="MainCtrl">
     <div class="row">
       
-      <br><br><!--<h1></h1>-->
+      <br><br>
       <hr>
       <!-- Here the views get rendered -->
       <div ng-view></div>
@@ -112,6 +114,7 @@
   <script src="js/OrderLogController.js"></script>
   <script src="js/ReceiptController.js"></script>
   <script src="js/angular-translate/angular-translate.js"></script>
+  <script src="js/UndoRedoService.js"></script>
 
 </body>
 </html>

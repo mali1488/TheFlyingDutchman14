@@ -1,5 +1,5 @@
 <div class="orderpane">
-<h1>Order</h1>
+<h1>{{ 'ORDER' | translate }}</h1>
 <hr>
 <div class="well" style="max-height: 400px;overflow-y:scroll;"
 data-drop="true" jqyoui-droppable = "{onDrop: 'drop(item)'}">
@@ -18,5 +18,7 @@ data-drop="true" jqyoui-droppable = "{onDrop: 'drop(item)'}">
 </div>
 <h3>Total: <em>{{(order.total | number: 2) + " kr"}}</em></h3>
 <button class="btn btn-lg btn-success" data-ng-disabled="order.length <= 0"
-	ng-click="checkout()">Checkout</button>
+	ng-click="checkout()">{{ 'CHECKOUT' | translate }}</button>
+<button class="btn btn-lg btn-sm btn-info" ng-click="undo()">{{ 'UNDO' | translate }}</button>
+<button class="btn btn-lg btn-sm btn-info" ng-click="redo()">{{ 'REDO' | translate }}</button>
 </div>

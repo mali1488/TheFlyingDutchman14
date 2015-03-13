@@ -53,7 +53,7 @@ angular.module('Dutchman')
 		$cookieStore.put('loggedin',false);
 		$rootScope.loggedin = false;
 		$cookieStore.remove('userInfo');
-		$cookieStore.remove('loggedin');
+		//$cookieStore.remove('loggedin');
 		$rootScope.currentUser = null;
 		$location.path('/logout');
 	}
