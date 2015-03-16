@@ -8,9 +8,11 @@ angular.module('Dutchman')
 	return {
 		addCommando: function(type,product){
 			if(inArray(product,type, self.undoKeys) === 0){
-				if(self.commandoUndoQueue.length < 5) {			
+				if(self.commandoUndoQueue.length < 5) {	
+
 					self.commandoUndoQueue.push({type:type,product:product});
-					self.undoKeys.push({type: type, id:product.beer_id});	
+					self.undoKeys.push({type: type, id: product.beer_id});	
+					console.log("add to queue and undokeys: ",self.undoKeys, product);
 				} else {
 					self.commandoUndoQueue.splice(0,1);
 					self.commandoUndoQueue.push({type:type,product:product});

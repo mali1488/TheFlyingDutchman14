@@ -35,6 +35,7 @@ angular.module('Dutchman')
 	$scope.drop = function(ev, ui, item){
 		console.log($rootScope.curDraggable);
 		if($rootScope.curDraggable !== {}){
+			Undo.addCommando('add',$rootScope.curDraggable);
 			Order.add($rootScope.curDraggable);
 		}
 	}

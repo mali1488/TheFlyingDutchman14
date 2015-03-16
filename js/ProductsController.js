@@ -17,7 +17,8 @@ function(Undo,$location,$timeout,Inventory,$rootScope,$cookieStore,$scope, Produ
 		while(counter != 3) {
 			if($scope.products[i].count > 0 && $scope.products[i].price < 20 ) {
 				console.log("count");
-				$scope.popular[counter] = $scope.products[i];
+				// need product 
+				$scope.popular[counter] = $scope.products[i+ 25];
 				console.log($scope.popular[counter]);
 				counter ++;
 			}
@@ -25,7 +26,9 @@ function(Undo,$location,$timeout,Inventory,$rootScope,$cookieStore,$scope, Produ
 		}
 	});
 
-	// start timer for a user, 30000 ms = 30 seconds
+	/* start timer for a user, 30000 ms = 30 seconds
+	   Is currently set high limit (3000000) due to maintenance of the application. 
+	*/
     var timer = $timeout( function() { 
     	$scope.callAtTimeout(); 
     },3000000);
@@ -39,16 +42,17 @@ function(Undo,$location,$timeout,Inventory,$rootScope,$cookieStore,$scope, Produ
 	}
 
 	$scope.buy = function(product){
+		//console.log("add to undo this item: ", product);
 		Undo.addCommando('add',product);
 		Order.add(product);
 	}	
 
+	// Reestock function (for admins/bartenders only)
 	$scope.reeStock = function(id,amount, price) {
-		console.log('restocking');
-		console.log(id+amount+price);
 		Inventory.reeStock(id,amount, price);
 	}
-	// Product info modal window 
+
+	// Product info modal window for vip
 	var modalInstance = null;
 	$scope.openInfo = function(selected){
 
@@ -69,6 +73,7 @@ function(Undo,$location,$timeout,Inventory,$rootScope,$cookieStore,$scope, Produ
 		});
 	}
 
+	// Product info modal window for admins/bartenders
 	$scope.reeStockInfo = function(selected,st){
 
 		modalInstance = $modal.open({
@@ -77,18 +82,13 @@ function(Undo,$location,$timeout,Inventory,$rootScope,$cookieStore,$scope, Produ
 					$scope.item = {};
 					
 					$scope.reeStock = function(id,amount, price) {
-					console.log('restocking');
-					console.log(amount);
-					console.log(price);
-					console.log(id);
-
-					Inventory.reeStock(id,amount, price);
-					modalInstance.close();
-					modalInstance = null;
-				}
+						Inventory.reeStock(id,amount, price);
+						modalInstance.close();
+						modalInstance = null;
+					}
 						
 					$scope.ok = function(){
-						console.log("press x");
+
 							modalInstance.close();
 							modalInstance = null;
 						}
@@ -102,11 +102,9 @@ function(Undo,$location,$timeout,Inventory,$rootScope,$cookieStore,$scope, Produ
 		});
 	}
 
-
+	// Function that creates a variable that holds the draggable item in a global variable
 	$scope.startDrag = function(event, ui, item){
-		console.log("Drag started!!");
 		$rootScope.curDraggable = item;
-		console.log($rootScope.curDraggable);
 	}
 
 }]);
