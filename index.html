@@ -28,7 +28,7 @@
             <li ><a href="#settings">{{'SETTINGS' | translate}}</a></li>
             <li ><a href="#help">{{'HELP' | translate}}</a></li>
             <li><a ng-href="#orderlog">{{'ORDERS' | translate}}</a></li>
-            <li><a ng-href="#adduser">{{'ADDUSER' | translate}}</a></li>
+            <li><a ng-href="#adduser" ng-if="user.role === 'admin'">{{'ADDUSER' | translate}}</a></li>
           </ul>
 
           <ul class="nav navbar-nav navbar-right">
