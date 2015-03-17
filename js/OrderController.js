@@ -36,7 +36,16 @@ angular.module('Dutchman')
 
 			$rootScope.currentUser = null;//$cookieStore.get('userInfo');
 			$cookieStore.remove('userInfo');
+			$cookieStore.put('loggedin',false);
+			/*
+			$rootScope.loggedin = false;
+			$rootScope.currentUser = $cookieStore.get('userInfo');
+			$cookieStore.put('loggedin',false);
+			
+			$cookieStore.remove('userInfo');	
+			$rootScope.role = '';*/
 			$location.path('/receipt');
+
 		});
 
 	}

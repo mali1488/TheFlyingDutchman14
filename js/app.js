@@ -39,7 +39,6 @@ angular.module('Dutchman', ['pascalprecht.translate','ngCookies','ngRoute', 'ngR
     CONTACT: 'Kontakta oss ', HERE: 'här',
     // Log out page
     LOGINAGAIN: 'Logga in', LOGOUTMSG: 'Tack och välkommen åter!',
-
     // Order page
     REDO: 'Gör om', UNDO: 'Ångra', CHECKOUT: 'Checka ut', ORDER: 'Beställning',
     // Order history
