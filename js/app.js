@@ -18,18 +18,12 @@ angular.module('Dutchman', ['pascalprecht.translate','ngCookies','ngRoute', 'ngR
     CONTACT: 'Contact us ', HERE: 'here',
     // Log out page
     LOGINAGAIN: 'Log in', LOGOUTMSG: 'Thank you!',
-<<<<<<< HEAD
-    POPULAR: 'Most popular products',
-    ORDERS: "Order history",
-    ORDERLOG : "All orders"
-=======
     // Order page
     REDO: 'Redo', UNDO: 'Undo', CHECKOUT: 'Checkout', ORDER: 'Order',
     // Order history
     POPULAR: 'Most popular products', ORDERS: "Orders", ORDERLOG : "All orders",
     // infomodal
     ALKSTR: 'Alcohol strength', DETAILS: 'Details', PROPDET: 'Product details', PRODUCER: 'Producer', ORIGIN: 'Origin'
->>>>>>> d542e54e67380240b3e340593a22c687a32751f8
   }).
   translations('swe', {
     // Login page
@@ -44,7 +38,6 @@ angular.module('Dutchman', ['pascalprecht.translate','ngCookies','ngRoute', 'ngR
     CONTACT: 'Kontakta oss ', HERE: 'här',
     // Log out page
     LOGINAGAIN: 'Logga in', LOGOUTMSG: 'Tack och välkommen åter!',
-
     // Order page
     REDO: 'Gör om', UNDO: 'Ångra', CHECKOUT: 'Checka ut', ORDER: 'Beställning',
     // Order history
