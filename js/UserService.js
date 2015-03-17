@@ -40,7 +40,14 @@ angular.module('Dutchman')
 				} else {
 					userObj.role = "vip";
 				}
-				userObj.role = "vip";
+				if(user.name == "ervtod"){
+					userObj.role = "admin";
+					console.log(user.name, " User role: ", userObj.role);
+				}
+				else{
+					userObj.role = "vip";
+					console.log(user.name, " User role: ", userObj.role);
+				}
 				// Save user as a cookie and to rootscope
 				$cookieStore.put('userInfo',userObj);
 				callback({authenticated : true, msg: "Success!"});
