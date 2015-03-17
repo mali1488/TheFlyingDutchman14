@@ -34,7 +34,7 @@ angular.module('Dutchman')
 			$rootScope.loggedIn = false;
 			$cookieStore.remove('loggedIn');
 
-			$rootScope.currentUser = $cookieStore.get('userInfo');
+			$rootScope.currentUser = null;//$cookieStore.get('userInfo');
 			$cookieStore.remove('userInfo');
 			$cookieStore.put('loggedin',false);
 			/*

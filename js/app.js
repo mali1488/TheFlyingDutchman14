@@ -18,6 +18,7 @@ angular.module('Dutchman', ['pascalprecht.translate','ngCookies','ngRoute', 'ngR
     CONTACT: 'Contact us ', HERE: 'here',
     // Log out page
     LOGINAGAIN: 'Log in', LOGOUTMSG: 'Thank you!',
+
     // Order page
     REDO: 'Redo', UNDO: 'Undo', CHECKOUT: 'Checkout', ORDER: 'Order',
     // Order history
@@ -89,7 +90,8 @@ angular.module('Dutchman', ['pascalprecht.translate','ngCookies','ngRoute', 'ngR
     templateUrl : 'views/order/receipt.html',
     controller: 'ReceiptCtrl'
   }).
-  otherwise({redirectTo: '/products'}); // A default route for anything that does not match a specific route.
+  when('/', { redirectTo: '/login'}).
+  otherwise({redirectTo: '/login'}); // A default route for anything that does not match a specific route.
 
 }]);
 

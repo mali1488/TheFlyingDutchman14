@@ -1,5 +1,7 @@
-<h3>{{ 'POPULAR' | translate}}</h3>
-<div class="col-md-9">
+
+<div class="col-md-9 well" >
+<h2>{{ 'POPULAR' | translate}}</h2>
+<hr>
 <ul class="row list-unstyled">
   <li ng-repeat="pop in popular">
       <div class="col-md-3 well productpanel">
@@ -32,7 +34,7 @@
             </dl>
           </div>
         </div> <!--row-->
-                  
+                
 
           <!-- The green buy button -->
           <button type="button" class="btn btn-success buybtn" ng-show="pop.count > 0" ng-click="buy(pop)"><span class="glyphicon glyphicon-plus"></span></button>
@@ -47,11 +49,11 @@
       </div>
   </li>
 </ul>
-<h3>rest</h3>
+
 </div>
-	
 <div class="col-md-9">
-<ul class="row list-unstyled">
+<h2>{{'STOCK' | translate}}</h2>	
+<ul class="row list-unstyled" style="max-height:800px;overflow-y:scroll;">
 	<li ng-repeat = "product in products | filter:query |orderBy:namn" ng-if="product.beer_id > 20000&&product.namn !== ''">
 			<div class="col-md-3 well productpanel">
 				
