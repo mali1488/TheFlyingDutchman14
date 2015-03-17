@@ -53,8 +53,8 @@
               </div>
             </form></li>
             <li>
-              <div ng-controller="LoginCtrl">
-                <button ng-click="logOut()" type="button" class="btn btn-default navbar-btn" ng-show="loggedIn">
+              <div ng-controller="LoginCtrl" ng-if="loggedIn === true">
+                <button ng-click="logOut()" type="button" class="btn btn-default navbar-btn" ng-if="loggedIn === true">
                 {{'LOGOUT' | translate}}
                 </button>
               </div>
@@ -75,11 +75,11 @@
       <!-- Here the views get rendered -->
       <div ng-view></div>
     </div>
-    <div id="topRight" ng-show="user.role === 'vip'" ng-if="loggedIn">
+    <div id="topRight" ng-if="loggedIn === true">
       <order-pane></order-pane>
     </div>
 
-    <div id="topRight" ng-show="user.role === 'admin'" ng-if="loggedIn">
+    <div id="topRight"  ng-if="loggedIn === true">
       <restock-pane></restock-pane>
     </div>
 
