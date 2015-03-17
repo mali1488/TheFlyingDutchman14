@@ -1,8 +1,8 @@
 
 // This is the controller for the Order view.
 angular.module('Dutchman')
-.controller('OrderCtrl', ['$scope','$rootScope','Order', '$location' , '$cookieStore',
-	function($scope,$rootScope, Order, $location, $cookieStore){
+.controller('OrderCtrl', ['$scope', 'Undo','$rootScope','Order', '$location' , '$cookieStore',
+	function($scope, Undo ,$rootScope, Order, $location, $cookieStore){
 	
 	$scope.order = Order.all();
 	this.commandoQueue = $rootScope.commandoQueue;
